@@ -67,8 +67,9 @@
             \subsection*{等温操作}
                 等温操作とは、系が温度一定の環境下で変化させることである。
                 つまり、以下のような温度が一定の操作のことである。
+                矢印上部の$i$は等温操作であることを表している。ちなみに、$iq$で等温準静操作を表す。
                 \begin{equation}
-                    (T; X)\xrightarrow{}(T; X')
+                    (T; X)\xrightarrow{i}(T; X')
                 \end{equation}
                 ただひとつ注意として、環境が等温なだけで、考えている系が常に等温なわけではない。
                 始状態と終状態が環境の温度と等しければ、それは等温操作となる。
@@ -90,36 +91,148 @@
 
             \subsection*{最大仕事の原理}
                 始状態を$(T; X)$、終状態を$(T; X')$とするとき、仕事の値は変化のさせ方に依存するので一意には定まらないが、仕事の最大値(\textbf{最大仕事})は一意に定まる。
-                この最大仕事は、\textbf{等温準静操作で系が外界にする仕事}に等しい。
+                この最大仕事は、\textbf{等温準静操作で系が外界にする仕事}に等しい。\par
+                $(T; X)\xrightarrow{i}(T; X')$から分かる通り、仕事の値は示量変数の変化量に依存する。
+                そのため、仕事は示量的な性質である相加性をもつといえる。
 
             \subsection*{ヘルムホルツの自由エネルギーの定義}
+                最大仕事が一意に定まることを利用して、基準となる状態を$X_0$として、以下のように\textbf{ヘルムホルツの自由エネルギー}を定義する。
+                \begin{equation}
+                    F(T; X) = W_{max}(T;X \xrightarrow{} X_0)
+                \end{equation}
+                これは、基準点$X_0$から$X$の状態に変化させるために必要な\textbf{最大仕事}を表している。
+                もちろん、先ほど述べた最大仕事の相加性より、ヘルムホルツの自由エネルギーも同様の性質をもつことがわかる。\par
+                任意の２点に対して、
+                \begin{align}
+                    W_{max}(T; X_1 \xrightarrow{} X_2) &= W_{max}(T; X_1 \xrightarrow{} X_0) + W_{max}(T; X_0 \xrightarrow{} X_2) \\
+                    &= F(T;X_1 \xrightarrow{} X_0) + F(T;X_0 \xrightarrow{} X_2) \\
+                    &= F(T; X_1) - F(T; X_2) \\
+                \end{align}
+                が成り立ち、\textbf{２点間の等温操作での系が外界にする仕事の最大値は、２点のヘルムホルツの自由エネルギーの差に等しい}といえる。
 
             \subsection*{圧力の定義}
-            
-
-    \begin{equation}
-        X(T; V, N) \xrightarrow{\text{i.q}} X'(T; V', N)
-    \end{equation}     
+                等温過程において、体積が微小変化する場合($V \rightarrow{} V + \Delta V$)を考える。このときの最大仕事は、
+                \begin{align}
+                    W_{max} &= F \Delta l + O(\Delta l^2) \\
+                    &= P \Delta V + O(\Delta V^2)
+                \end{align}
+                等温操作における最大仕事がヘルムホルツの自由エネルギーに対応することから、
+                \begin{equation}
+                    P = -\frac{\partial}{\partial V} F(T; V, N)
+                \end{equation}
+                という関係式が成り立つことが分かる。
 
 
     \chapter{断熱操作}
 
-    \section{断熱操作とは}
+        \section{断熱操作とは}
             \subsection*{断熱操作とは}
-                
-    \section{エネルギー保存則}
+                断熱操作とは、系を断熱壁で覆われた環境下で変化させることである。
+                矢印上部の$a$は断熱操作であることを表している。ちなみに、$aq$で断熱準静操作を表す。
+                \begin{equation} \label{eq:3a}
+                    (T; X)\xrightarrow{a}(T'; X')
+                \end{equation}
+                    
+        \section{エネルギー}
+
+            \subsection*{断熱仕事}
+                断熱操作では、外部とのエネルギーのやり取りは力学的な仕事を介してのみ行われる。
+                これから、力学でいう位置エネルギーと似たような性質を持っているといえる。\par
+                (\ref{eq:3a})式のような断熱操作を考える。
+                エネルギーのやり取りが仕事のみであるから、始状態と終状態が決定しているとき、その間での変化は全て系がする仕事によるものであるといえるので、その値は一意に決まる。
+                これを\textbf{断熱仕事}と呼び、$W_{ad}((T; X)\xrightarrow{}(T'; X'))$と表す。
+                この一意性などの性質はある種、等温操作における最大仕事に似ている。
                             
-        \subsection*{エネルギー保存則（熱力学第一法則）}
+            \subsection*{内部エネルギーの定義}    
+                等温操作の元で最大仕事に対してヘルムホルツの自由エネルギーを定義したように、断熱操作の元での断熱仕事に対して\textbf{内部エネルギー}を定義する。
+                基準となる状態を$(T_0;X_0)$として、
+                \begin{equation}
+                    U(T; X) = W_{ad}((T;X) \xrightarrow{} (T_0;X_0))
+                \end{equation}
+                とする。これは、基準点$X_0$から$X$の状態に変化させるために必要な\textbf{断熱仕事}を表している。
+                もちろんのこと、仕事に依存するような値なので相加性をもつ。\par
+                任意の２点に対して、
+                \begin{align}
+                    W_{ad}((T_1;X_1) \xrightarrow{} (T_2;X_2)) &= W_{ad}((T_1;X_1) \xrightarrow{} (T_0;X_0)) + W_{ad}((T_0;X_0) \xrightarrow{} (T_2;X_2)) \\
+                    &= U(T_1;X_1) - U(T_2;X_2) \\
+                \end{align}
+                が成り立ち、\textbf{２点間の断熱操作での系が外界にする仕事は、２点の内部エネルギーの差に等しい}といえる。
+                この性質は\textbf{エネルギー保存則}や\textbf{熱力学第一法則}とも呼ばれる。
 
-        \subsection*{断熱仕事}
-
-        \subsection*{定積熱容量}
 
     \chapter{熱}
-    
+        \section{熱}
+            \subsection*{熱の定義}
+                断熱操作においては4章で扱った通り、系がされた仕事と内部エネルギーの変化量が一致した。
+                つまり内部エネルギーの変化は一意に定まるような仕事によって表すことができるということである。\par
+                しかし、等温操作においてはここまで単純な話にはならない。
+                理由はシンプルで系と隣接した環境から何かしらのエネルギーを受け取ることができるからである。
+                この得体の知れないエネルギーを\textbf{熱}と表現する。
+                吸熱量を$Q$と表すことにすると、(\ref{eq:4a})式のような等温操作に対して、
+                \begin{equation} \label{eq:4a}
+                    (T; X) \xrightarrow{i} (T; X')
+                \end{equation}
+                \begin{equation} \label{eq:4b}
+                    W = U(T; X) - U(T; X') + Q
+                \end{equation}
+                \begin{equation} \label{eq:4c}
+                    U(T; X) - U(T; X') = -W + Q
+                \end{equation}
+                という関係式が成り立つ。特に(\ref{eq:4c})式は、内部エネルギーの変化は仕事と熱のやり取りに依存することを表している。\par
+                ひとつ注意しておきたいのは、この熱$Q$という物理量は系の状態を表すようなものではない。
+                つまり\textbf{非状態量}であり、エネルギーの伝搬に寄与するような量である。
+                イメージとしては、エネルギーと仕事の関係でいう仕事の方である。
+
+            \subsection*{最大級熱量}
+                (\ref{eq:4c})式を見ると、等温操作において最大吸熱量を最大にするためには、仕事$W$を最大にすれば良い。
+                これより、ヘルムホルツの自由エネルギーの定義を用いて、
+                \begin{align}
+                    Q_{max}(T; X \xrightarrow{} X') 
+                    &= W_{max}(T; X \xrightarrow{} X') + U(T; X') - U(T; X) \\
+                    &= F(T; X) - F(T; X') + U(T; X') - U(T; X)
+                \end{align}
+                と表すことができる。この表式はカルノーの定理で大変重要になってくる。
+
+        \section{カルノーの定理}
+            \subsection*{カルノーサイクル}
+
+
+            \subsection*{カルノーの定理}
+
+
+        \section{熱機関}    
+            \subsection*{熱効率とその上限}
     
     \chapter{エントロピー}
-    
+        \section{エントロピー}
+            \subsection*{エントロピーの定義}
+                
+            \subsection*{エントロピーと断熱準静操作}
+        \section{エントロピー原理}
+            \subsection*{プランクの原理}
+            \subsection*{エントロピー原理}
+            \subsection*{エントロピー増大則}
+        \section{エントロピーの熱的解釈}
+            \subsection*{クラウジウス流エントロピーの解釈}
+                (\ref{eq:5a})式のような等温準静操作を考える。
+                \begin{equation} \label{eq:5a}
+                    (T; X) \xrightarrow{iq} (T; X')
+                \end{equation}
+                この操作において、最大吸熱量$\Delta Q$ 、エントロピーの変化を$\Delta S$とすると、
+                \begin{equation}
+                    \Delta Q = Q_{max}(T; X \xrightarrow{} X')
+                \end{equation}
+                \begin{equation}
+                    \Delta S = S(T; X') - S(T; X)
+                \end{equation}
+                と表される。このとき、この２つの量の間には
+                \begin{equation}
+                    \Delta S = \frac{\Delta Q}{T}
+                \end{equation}
+                のような関係式が成り立つ。
+                この式を見ると、断熱準静操作においてエントロピーの変化が$0$であることが一目で分かる。\par
+                それ以上にこの関係式の特筆すべき点は、熱という非状態量とエントロピーという状態量が等号で結ばれていることである。
+
     
     \chapter{ヘルムホルツの自由エネルギー}
     
