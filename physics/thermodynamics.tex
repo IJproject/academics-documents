@@ -195,13 +195,47 @@
 
         \section{カルノーの定理}
             \subsection*{カルノーサイクル}
-
+                以下のような、等温準静操作と断熱準静操作で構成された一周の操作を考える。
+                \begin{equation}
+                    (T'; X'_0) \xrightarrow{iq} (T'; X'_1) \xrightarrow{aq} (T; X_1) \xrightarrow{iq} (T; X_0) \xrightarrow{aq} (T'; X'_0)
+                \end{equation}
+                このサイクルのことを\textbf{カルノーサイクル}という。
+                このサイクルにおいて、一周の間に系が外界にする仕事$W_{cyc}$は、計算の過程は省くが準静的操作であることを利用して、
+                \begin{equation}
+                    W_{cyc} = Q_{max}(T'; X'_0 \xrightarrow{} X'_1) - Q_{max}(T; X_0 \xrightarrow{} X_1)
+                \end{equation}
+                となる。等温準静操作の過程で吸収した熱を仕事として外界に放出していることが分かる。
+                このカルノーサイクルについては、次の熱機関のセクションで再度詳しく扱う。
 
             \subsection*{カルノーの定理}
-
+                カルノーサイクルにおいて、最大吸熱量の比
+                \begin{equation}
+                    f(T', T) = \frac{Q_{max}(T'; X'_0 \xrightarrow{} X'_1)}{Q_{max}(T; X_0 \xrightarrow{} X_1)}
+                \end{equation}
+                は、熱力学的な系の選択に依存せず、温度$T$、$T'$のみに依存する。
+                これを\textbf{カルノーの定理}という。
+                我々が絶対温度という尺度を持って温度を決定する場合、この定理はさらに、
+                \begin{equation}
+                    f(T', T) = \frac{T'}{T}
+                \end{equation}
+                と表される。カルノーサイクルが外部にする仕事は最大吸熱量の差であったが、その比は単純な温度のみに依存する関数となる。
+                これは熱機関の効率について、非常に重要な結果である。
 
         \section{熱機関}    
+
             \subsection*{熱効率とその上限}
+                \textbf{熱機関}とは、熱を仕事に変換するための装置のことである。
+                一般的な熱機関でも、準静的ではないとはいえカルノーサイクルのように一周のサイクルを持っているを考えることができる。
+                そのサイクルの中で、外部から受け取る熱量を$Q_H$、外部に放出する熱量を$Q_L$、外部にする仕事を$W$とすると、
+                \begin{equation}
+                    \epsilon = \frac{W}{Q_H} = 1 - \frac{Q_L}{Q_H}
+                \end{equation}
+                と\textbf{熱効率}を定義することができる。\par
+                このサイクルがカルノーサイクルであれば、カルノーの定理により、
+                \begin{equation}
+                    \epsilon = 1 - \frac{T_L}{T_H}
+                \end{equation}
+                と温度の比で表現することができる。
     
     \chapter{エントロピー}
         \section{エントロピー}
