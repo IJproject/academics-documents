@@ -196,7 +196,7 @@
         \section{カルノーの定理}
             \subsection*{カルノーサイクル}
                 以下のような、等温準静操作と断熱準静操作で構成された一周の操作を考える。
-                \begin{equation}
+                \begin{equation} \label{eq:carnot_cycle}
                     (T'; X'_0) \xrightarrow{iq} (T'; X'_1) \xrightarrow{aq} (T; X_1) \xrightarrow{iq} (T; X_0) \xrightarrow{aq} (T'; X'_0)
                 \end{equation}
                 このサイクルのことを\textbf{カルノーサイクル}という。
@@ -240,16 +240,68 @@
     \chapter{エントロピー}
         \section{エントロピー}
             \subsection*{エントロピーの定義}
-                
-            \subsection*{エントロピーと断熱準静操作}
+                \textbf{エントロピー}$S$という量を以下のように定義する。
+                \begin{equation} \label{eq:5a}
+                    S(T; X) = \frac{U(T; X) - F(T; X)}{T}
+                \end{equation}
+                \begin{equation} \label{eq:5b}
+                    F(T; X) = U(T; X) - TS(T; X)
+                \end{equation}
+                ２種類の表式を提示した理由は、それぞれが思慮に富んだ数式であれからである。\par
+                ヘルムホルツの自由エネルギーというのは、系が外部に対して行うことのできる最大仕事であった。
+                (\ref{eq:5a})式を見ると、内部エネルギーから最大仕事を引いた値、つまり系の持つ自由に使用できないような熱的なエネルギーを温度で割るとエントロピーになるということである。
+                (\ref{eq:5a})式を見ると、内部エネルギーから系が持つ熱的なエネルギーを引くと、ヘルムホルツの自由エネルギー（最大仕事）になるということがわかる。
+                これは熱力学第一法則的な性質を持っているといえる。\par
+                (\ref{eq:carnot_cycle})式のようなサイクルにカルノーの定理を用いると、導出は省略するが、先ほどの定義式の形が自然に導出され以下のような関係式が得られる。
+                \begin{equation} \label{eq:5c}
+                    S(T; X_1) - S(T; X_0) = S(T'; X_1') - S(T'; X_0')
+                \end{equation}
+                \begin{equation} \label{eq:5d}
+                    Q_{max}(T; X_0 \xrightarrow{} X_1) = T(S(T; X_1) - S(T; X_0))
+                \end{equation}
+                これらはエントロピーの性質を示す重要な式である。また、エントロピーは示量性や相加性をもつ。
+
+            \subsection*{エントロピーの性質}
+                定義式(\ref{eq:5a})式より、断熱準静操作を行う場合、内部エネルギーからヘルムホルツの自由エネルギーの差は変化しないため、\textbf{断熱準静操作において、エントロピー変化は0}という非常に重要な性質を見出すことができる。
+
+                エントロピーの温度依存性について、$T < T'$であれば、
+                \begin{equation}
+                    S(T; X) < S(T'; X')
+                \end{equation}
+                である。また、以下のように温度$T$で微分可能な領域であれば、
+                \begin{equation}
+                    T \frac{\partial S(T; X)}{\partial T} = \frac{\partial U(T; X)}{\partial T} = C_V(T; X)
+                \end{equation}
+                と、定積熱容量$C_V$との関係が成り立つ。
+
+
         \section{エントロピー原理}
             \subsection*{プランクの原理}
+                以下のような、示量変数を変化させずに温度のみを上昇させる断熱操作$(T < T')$
+                \begin{equation} \label{eq:5e}
+                    (T; X) \xrightarrow{a} (T'; X)
+                \end{equation}
+                は不可逆であるという原理を\textbf{プランクの原理}という。
+                直感的にはシンプルで、外部から示量変数を変化させないという条件のもとで仕事をし、内部エネルギーを上昇させることはできるが、逆に内部からエネルギーを放出することはどう頑張ってもできない。
+                魔法瓶に水を入れた状態を考えれば、振りまくって温度を上げることはできるが、逆に熱を逃がすこと以外で内部の水を冷やすことはできないということである。
+                断熱操作なので、熱の出入りは考えていない。この原理は\textbf{ケルヴィンの原理}から導出することができる。
+
             \subsection*{エントロピー原理}
+                エントロピーの温度依存性とプランクの原理から、
+                \begin{equation}
+                    S(T; X) \le S(T'; X') \Longleftrightarrow (T; X) \xrightarrow{a} (T'; X')
+                \end{equation}
+                という関係式が成り立つ。
+                つまり、エントロピーが上昇する場合、右辺のような断熱操作が可能であるということを表している。
+                左辺の等号が成り立つ場合、右辺のような操作は可逆的であるということである。
+
             \subsection*{エントロピー増大則}
+                エントロピー原理の主張は、\textbf{断熱された系では常にエントロピーが上昇する方向に進む}ということである。
+                これを\textbf{エントロピー増大則}という。
         \section{エントロピーの熱的解釈}
             \subsection*{クラウジウス流エントロピーの解釈}
-                (\ref{eq:5a})式のような等温準静操作を考える。
-                \begin{equation} \label{eq:5a}
+                (\ref{eq:4d})式のような等温準静操作を考える。
+                \begin{equation} \label{eq:4d}
                     (T; X) \xrightarrow{iq} (T; X')
                 \end{equation}
                 この操作において、最大吸熱量$\Delta Q$ 、エントロピーの変化を$\Delta S$とすると、
