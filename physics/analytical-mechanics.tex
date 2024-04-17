@@ -159,7 +159,7 @@
                 \delta L = \frac{d}{dt} L(q, \dot{q})\epsilon_0
             \end{equation}
             ネーターの定理(\ref{eq:3a})式との対応関係を考えると、
-            \begin{equation}
+            \begin{equation} \label{eq:3b}
                 E = \frac{\partial L(q, \dot{q})}{\partial \dot{q_i}} \dot{q_i} - L(q, \dot{q})
             \end{equation}
             という保存量$E$を得ることができ、これは一般に\textbf{エネルギー}と呼ばれるものである。
@@ -172,12 +172,78 @@
 
     \chapter{ハミルトン形式}
         \section{ハミルトニアン}
-        ラグランジアンのルジャンドル変換で得られる
+            一般化座標に対する一般化運動量は以下のように定義される。
+            \begin{equation} \label{eq:4a}
+                p_i = \frac{\partial L(q, \dot{q}, t)}{\partial \dot{q_i}}
+            \end{equation}
+            これまでのラグランジュ形式が$(q, \dot{q}, t)$であったことに対して、ハミルトン形式では$(q, p ,t)$に依存するような形式で考える。
+            そしてハミルトニアン$H$を以下のように定義する。
+            \begin{equation} \label{eq:4b}
+                H(q, p ,t) = \sum_{i=1}^N p_i \dot{q_i} - L(q, \dot{q}, t)
+            \end{equation}
+            これは、(\ref{eq:3b})式と全く同じ形をしていることから、ハミルトニアンはエネルギーに関する情報を持っているといえる。
+            ちなみにだが、後述するルジャンドル変換を使用すると、ラグランジアンからハミルトニアンの表式を導出することができる。
+            つまり、ラグランジアンと等価であるといえる。
+
         \section{ハミルトンの運動方程式}
-        最小作用の原理からも導出可能
+            定義したハミルトニアンの式から、偏微分を計算することにより
+            \begin{align}
+                \dot{q_i} &= \frac{\partial H(q, p ,t)}{\partial p_i} \label{eq:4c} \\
+                \dot{p_i} &= - \frac{\partial H(q, p ,t)}{\partial q_i} \label{eq:4d}
+            \end{align}
+            という性質を見出すことができる。
+            これをハミルトンの運動方程式といい、一階常微分方程式を与え、二階常微分方程式を与えるオイラー＝ラグランジュ方程式と等価な方程式である。
+            ２つが等価であることから、オイラー＝ラグランジュ方程式を導出した時と同じように、ハミルトニアンの表式から最小作用の原理から導出することが可能であることは直感的にも理解できる。
+
         \section{ハミルトニアンの時間微分}
-        \section{位相空間軌跡}
+            ハミルトンの運動方程式(\ref{eq:4c})(\ref{eq:4d})を用いることで、ハミルトニアンの時間$t$に関する全微分は、
+            \begin{equation} \label{eq:4e}
+                \frac{d}{dt} H(q, p ,t) = \frac{\partial H(q, p, t)}{\partial t}
+            \end{equation}
+            と表される。
+            さらに、ハミルトニアンの定義式(\ref{eq:4b})を時間に関して同様の計算をすると、
+            \begin{equation} \label{eq:4f}
+                \frac{d}{dt} H(q, p ,t) = - \frac{\partial L(q, \dot{q}, t)}{\partial t}
+            \end{equation}
+            と表される。
+            ここまでの議論により、ハミルトニアンの時間に対する応答とラグランジアンとの関係は、
+            \begin{equation}
+                \frac{d}{dt} H(q, p ,t) = \frac{\partial H(q, p, t)}{\partial t} = - \frac{\partial L(q, \dot{q}, t)}{\partial t}
+            \end{equation}
+            と表される。
+            もちろんだが、これは陽な時間依存性を持つ場合での話で、そうでなければ(\ref{eq:4e})(\ref{eq:4f})の値はどちらも$0$になる。
+       
         \section{ポアソンブラケット}
+            系の時間発展や変換を表現する量として、
+            \begin{equation}
+                \{f(q, p, t), g(q, p, t)\} = \sum_{i=1}^N \left(\frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i} - \frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q_i}\right)
+            \end{equation}
+            で表される\textbf{ポアソンブラケット}を定義する。
+            ポアソンブラケットの定義式を見れば、線形性が成り立つことは自明なので、それに伴った性質が現れる。\par
+            さらに、証明は省くが、
+            \begin{equation}
+                \{ f, \{ g, h \} \} + \{ g \{ h, f \} \} + \{ h \{ f, g \} \} = 0
+            \end{equation}
+            というような\textbf{ヤコビ恒等式}が成り立つ。
+
+        \section{ポアソンブラケットと物理量}
+            ある物理量$f(q, p ,t)$に対して、$\{ {f, H} \}$は系のハミルトニアン$H$の元での$f$の時間発展を表す量であることを念頭に置いて、時間$t$での全微分を考えると、
+            \begin{equation}
+                \frac{df}{dt} = \{f, H\} + \frac{\partial f}{\partial t}
+            \end{equation}
+            と表現することができる。
+            ここから、物理量$f$が陽な時間依存性を持たない場合、
+            \begin{equation}
+                \frac{df}{dt} = \{f, H\}
+            \end{equation}
+            と全微分をポアソンブラケットの表式だけで表すことができる。\par
+            さらに、物理量$f$と一般化座標、一般化運動量の間では、
+            \begin{align}
+                \{ q_i, f \} &= \frac{\partial f}{\partial p_i} \\
+                \{ p_i, f \} &= - \frac{\partial f}{\partial q_i}
+            \end{align}
+            という関係が成り立つことから、ポアソンブラケットは、微小変化に対して物理量がどのように変化するかを表す量であるといえる。
+            これから基本ポアソンブラケットと呼ばれるものを導出することができる。
 
 
     \chapter{正準変換}
@@ -194,6 +260,7 @@
     \chapter{ハミルトン＝ヤコビ理論}
 
     \chapter{解析力学の応用}
+        \section{位相空間軌跡}
         \section{リウヴィルの定理}
 
 \end{document}
