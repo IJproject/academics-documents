@@ -249,10 +249,62 @@
     \chapter{正準変換}
         \section{ルジャンドル変換}
         \section{正準変換}
+            これまで扱ってきた変数$(q, p)$は\textbf{正準変数}と呼ばれている。
+            これを元に、以下のような形式で新しい正準変数$(Q, P)$を作成することを\textbf{正準変換}という。
+            この時、この正準変数におけるハミルトニアンは$K(Q, P, t)$と表される。
+            \begin{equation}
+                Q_i = Q_i(q, p, t) \quad P_i = P_i(q, p, t)
+            \end{equation}
+            もちろん無条件に変換していいわけではなく、\textbf{ハミルトンの運動方程式を満たすこと}や\textbf{正準変換を不変に保つこと}などの条件がある。
+            つまり、表現している物理系の性質を変えない範囲内で、正準変数を変換する操作であるといえる。
+            これにより、運動方程式を解きやすい形に変換した上で解くことができるなどの恩恵を受けることができる。
+
         \section{母関数$F(q, Q, t)$における正準変換}
+            新しい変数$(Q, P, t)$への変換に関して、
+            \begin{equation}
+                \sum_{i} p_i \dot{q_i} - H(q, p, t) = \sum_{i} P_i \dot{Q_i} - K(Q, P, t) + \frac{d}{dt} F(q, Q, t)
+            \end{equation}
+            を満たすような$F(q, Q, t)$が存在すれば、これは正準変換であり$K(Q, P, t)$を新ハミルトニアン、$F(q, Q, t)$を母関数と呼ぶ。
+            この母関数$F(q, Q, t)$の時間に関する全微分を考え、項の比較をすることで、
+            \begin{equation}
+                3eq
+            \end{equation}
+            という関係式を得ることができる。
+            これにより、母関数をひとつ与えれば正準変換が定義されるということがわかる。
+            この正準変換を基本形として、ルジャンドル変換を使用することでさらに正準変数の組み替えをすることが可能になる。
+
         \section{母関数$\Phi(q, P, t)$における正準変換}
-        \section{母関数$\Psi(q, Q, t)$における正準変換}
-        \section{母関数$\Xi(q, Q, t)$における正準変換}
+            5.3節で得られた母関数をルジャンドル変換($Q \to P$)して、正準変数$(q, P, t)$を作る。
+            変換式は、
+            \begin{equation}
+                \Phi(q, P, t) = F(q, Q, t) + \sum_{i} P_i Q_i
+            \end{equation}
+            と表される。
+            $F(q, Q, t)$を計算した時と同じ要領で、全微分の計算をすることで、以下のような関係式を得ることができる。
+            \begin{equation}
+                3eq
+            \end{equation}
+
+        \section{母関数$\Psi(p, Q, t)$における正準変換}
+            5.4節と計算の流れは全く同じ。
+            \begin{equation}
+                \Psi(p, Q, t) = F(q, Q, t) - \sum_{i} p_i q_i
+            \end{equation}
+            とし、全微分を考えることにより、
+            \begin{equation}
+                3eq
+            \end{equation}
+
+        \section{母関数$\Xi(p, P, t)$における正準変換}
+            こちらも全く同じで、同時にルジャンドル変換を行えばよい。
+            \begin{equation}
+                \Xi(p, P, t) = F(q, Q, t) + \sum_{i} P_i Q_i - \sum_{i} p_i q_i
+            \end{equation}
+            とし、全微分を考えることにより、
+            \begin{equation}
+                3eq
+            \end{equation}
+
         \section{ラグランジュブラケット}
         \section{正準変換とブラケット}
         \section{微小正準変換}
