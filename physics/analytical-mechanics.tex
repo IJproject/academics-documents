@@ -116,7 +116,6 @@
             例えば、$3$次元空間で$x$軸方向のみに力が働いているような系の場合、空間回転させてしまうと系に対する力の働く向きが変わってしまうため、空間回転に対しては対称ではない。
             返って、中心力による束縛のような系では、空間回転しても分からないため、これは空間回転に対して対称であるといえる。
 
-        \section{ガリレイ不変性}
         \section{ネーターの定理}
             先ほどまでの対称性についての議論を踏まえて、保存則について考える。
             一つの重要な定理として、\textbf{ラグランジアンが対称性を持っている（=不変である）場合、それに対応した保存量が存在する}。
@@ -166,9 +165,30 @@
             つまり、\textbf{時間並進について対称（ラグランジアンが不変）の場合、エネルギー保存則が成り立つ}ということである。
             後に出てくるが、これはハミルトニアンの定義式と全く同じ式をしている。
 
-
         \section{運動量保存則}
+            3.2節で考えた空間並進の対称性に、ネーターの定理を適用する。
+            \begin{align}
+                q(t) &\to q(t) + \epsilon \\
+                \dot{q}(t) &\to \frac{d}{dt} ({q(t)} + q_0) = \dot{q}(t)
+            \end{align}
+            これとネーターの定理の各量と比較することで、
+            \begin{equation}
+                P = \sum_{i=1}^{N} \frac{\partial L(q, \dot{q})}{\partial \dot{q_i}}
+            \end{equation}
+            という保存量$P$を得ることができ、これが\textbf{運動量}と呼ばれるものである。
+            保存量であるため、\textbf{空間並進に対して運動量は保存する}ということである。
+
         \section{角運動量保存則}
+            3.3節で考えた空間回転の対称性に、ネーターの定理を適用する。
+            \begin{equation}
+                q(t) \to q(t) + \delta \phi \times q(t)
+            \end{equation}
+            これとネーターの定理の各量と比較することで、
+            \begin{equation}
+                L = \sum_{i=1}^{N} \frac{\partial L(q, \dot{q})}{\partial \dot{q_i}} \delta \phi
+            \end{equation}
+            という保存量$L$を得ることができ、これが\textbf{角運動量}と呼ばれるものである。
+            保存量であるため、\textbf{空間回転に対して角運動量は保存する}ということである。
 
     \chapter{ハミルトン形式}
         \section{ハミルトニアン}
@@ -255,7 +275,7 @@
             \begin{equation}
                 Q_i = Q_i(q, p, t) \quad P_i = P_i(q, p, t)
             \end{equation}
-            もちろん無条件に変換していいわけではなく、\textbf{ハミルトンの運動方程式を満たすこと}や\textbf{正準変換を不変に保つこと}などの条件がある。
+            もちろん無条件に変換していいわけではなく、\textbf{ハミルトンの運動方程式を満たすこと}や\textbf{ポアソンブラケットを不変に保つこと}などの条件がある。
             つまり、表現している物理系の性質を変えない範囲内で、正準変数を変換する操作であるといえる。
             これにより、運動方程式を解きやすい形に変換した上で解くことができるなどの恩恵を受けることができる。
 
@@ -266,8 +286,8 @@
             \end{equation}
             を満たすような$F(q, Q, t)$が存在すれば、これは正準変換であり$K(Q, P, t)$を新ハミルトニアン、$F(q, Q, t)$を母関数と呼ぶ。
             この母関数$F(q, Q, t)$の時間に関する全微分を考え、項の比較をすることで、
-            \begin{equation}
-                3eq
+            \begin{equation} \label{eq:5a}
+                p_i = \frac{\partial F(q, Q, t)}{\partial q_i} \quad P_i = - \frac{\partial F(q, Q, t)}{\partial Q_i} \quad K = H + \frac{\partial F(q, Q, t)}{\partial t}
             \end{equation}
             という関係式を得ることができる。
             これにより、母関数をひとつ与えれば正準変換が定義されるということがわかる。
@@ -281,8 +301,8 @@
             \end{equation}
             と表される。
             $F(q, Q, t)$を計算した時と同じ要領で、全微分の計算をすることで、以下のような関係式を得ることができる。
-            \begin{equation}
-                3eq
+            \begin{equation} \label{eq:5b}
+                p_i = \frac{\partial \Phi(q, P, t)}{\partial q_i} \quad Q_i = \frac{\partial \Phi(q, P, t)}{\partial P_i} \quad K = H + \frac{\partial \Phi(q, P, t)}{\partial t}
             \end{equation}
 
         \section{母関数$\Psi(p, Q, t)$における正準変換}
@@ -291,8 +311,8 @@
                 \Psi(p, Q, t) = F(q, Q, t) - \sum_{i} p_i q_i
             \end{equation}
             とし、全微分を考えることにより、
-            \begin{equation}
-                3eq
+            \begin{equation} \label{eq:5c}
+                q_i = - \frac{\partial \Psi(p, Q, t)}{\partial p_i} \quad P_i = - \frac{\partial \Psi(p, Q, t)}{\partial Q_i} \quad K = H + \frac{\partial \Psi(p, Q, t)}{\partial t}
             \end{equation}
 
         \section{母関数$\Xi(p, P, t)$における正準変換}
@@ -301,14 +321,44 @@
                 \Xi(p, P, t) = F(q, Q, t) + \sum_{i} P_i Q_i - \sum_{i} p_i q_i
             \end{equation}
             とし、全微分を考えることにより、
-            \begin{equation}
-                3eq
+            \begin{equation} \label{eq:5d}
+                q_i = - \frac{\partial \Xi(p, P, t)}{\partial p_i} \quad Q_i = \frac{\partial \Xi(p, P, t)}{\partial P_i} \quad K = H + \frac{\partial \Xi(p, P, t)}{\partial t}
             \end{equation}
+        
+        \section{正準変換とポアソンブラケット}
+            正準変換の一つの特徴として、\textbf{ポアソンブラケットを不変に保つ}という性質があった。
+            つまり、
+            \begin{equation}
+                \{ f, g \}_{q, p} = \{ f, g \}_{Q, P}
+            \end{equation}
+            という等式が成り立つ。
+            この結論の主張は、\textbf{正準変換に対して、力学的構造が変化しない}ことや、\textbf{時間依存性が変わらない（=保存量を引き継ぐ）}ことなどが挙げられる。
 
-        \section{ラグランジュブラケット}
-        \section{正準変換とブラケット}
         \section{微小正準変換}
+            正準変数の微小変化を新たな正準変数とすることを\textbf{微小正準変換}という。
+            \begin{equation}
+                Q_i = q_i + \delta q_i \quad P_i = p_i + \delta p_i
+            \end{equation} 
+            この微小変化を、$q_i \to Q_i \quad p_i \to P_i$という\textbf{恒等変換}を用いて考える。
+            この変換を定義できる母関数$\Phi (q, P, t)$を用いた恒等変換に微小変化分$\epsilon G$を加えて、
+            \begin{equation}
+                \Phi (q, P, t) = \sum_{i} q_iP_i + \epsilon G(q, P, t)
+            \end{equation}
+            という母関数を使用する。これと(\ref{eq:5c})式を使うことで、
+            \begin{equation}
+                \delta q_i = \epsilon \frac{\partial G(q, p, t)}{\partial p_i} \quad \delta p_i = - \epsilon \frac{\partial G(q, p, t)}{\partial q_i}
+            \end{equation}
+            これより、この$G$を微小変換の母関数という。
+            この$G$にエネルギーや運動量のような保存量を選べば、ラグランジュ形式の議論で出てきた\textbf{対称性}の式が現れる。
+            これはラグランジュ形式とハミルトン形式が等価であるからこそ得られる結果なように思える。
+
         \section{正準変換の群構造}
+            正準変換は系の力学的な構造を不変に保ったままの状態で正準変数を変換することができる。
+            よって、変数をどれだけ変換しても系の構造は変化しない。
+            つまり、変換を連続的に行う（\textbf{合成}する）ことが可能なのは自明である。
+            さらに、正準変換を逆に辿る操作ができることも自明ではないが直感的に理解できる。
+            このことから、単位元にあたる恒等変換や逆元にあたる正準変換の逆があることなどから、正準変換は群構造を持つことがわかる。
+
     \chapter{ハミルトン＝ヤコビ理論}
 
     \chapter{解析力学の応用}
