@@ -141,13 +141,116 @@
             というように係数を設定して表すことができる。
             ちなみに、
             \begin{align}
-                \alpha^0_0 &= c \\
-                \alpha^0_1 &= c
+                \alpha^0_0 &=  \gamma \\
+                \alpha^0_1 &= - \frac{V}{c} \gamma \\
+                \alpha^1_0 &= - \frac{V}{c} \gamma \\
+                \alpha^1_1 &= \gamma
             \end{align}
             である。
+            ローレンツ変換において、世界距離$s^2$は不変であることから、
+            \begin{equation}
+                s^2 = - (x^0)^2 + (x^1)^2 = - ({x^0}')^2 + ({x^1}')^2
+            \end{equation}
+            となることを利用すると、以下のような関係式を得ることができる。
+            \begin{equation}
+                (\alpha^0_0)^2 - (\alpha^0_1)^2 = (\alpha^1_0)^2 - (\alpha^1_1)^2 = -1
+            \end{equation}
+            \begin{equation}
+                \alpha^0_0 \alpha^1_0 - \alpha^0_1 \alpha^1_1 = 0
+            \end{equation}
+            一つ目の式は、双曲線関数で見られる表式と同じ形をしている。
+            ここでは詳しくは言及しないが、この性質から\textbf{世界距離を導出する際に$c^2t^2$の項が負になっていること}や\textbf{ミンコフスキー空間が複素空間的な性質を持っている}ことを示すことができる。\par
+            さて、ここまでは2章でやったローレンツ変換を2次元時空に拡張しただけだったが、ここから行列的な表現を導入する。
+            まず、以下のように変換行列と、ベクトルを定義する。
+            \begin{equation}
+                A = \begin{pmatrix}
+                    \alpha^0_0 & \alpha^0_1 \\
+                    \alpha^1_0 & \alpha^1_1
+                \end{pmatrix} \quad
+                \mathbf{x} = (x^\mu) = \begin{pmatrix}
+                    x^0 \\
+                    x^1
+                \end{pmatrix} \quad
+                \mathbf{x'} = ({x^\mu}') = \begin{pmatrix}
+                    {x^0}' \\
+                    {x^1}'
+                \end{pmatrix}
+            \end{equation}
+            すると、ローレンツ変換は以下のように表される。
+            \begin{equation} \label{eq:3k}
+                \mathbf{x'} = A \mathbf{x}
+            \end{equation}
+            ここでは結果のみを記述しておくが、逆変換の行列$A^{-1}$は、
+            \begin{equation} 
+                A^{-1} = \begin{pmatrix}
+                    \alpha^1_1 & -\alpha^0_1 \\
+                    -\alpha^1_0 & \alpha^0_0
+                \end{pmatrix}
+            \end{equation}
+            と表される。
+            こちらも結果のみを記述しておくが、基本テンソル$H$というものを導入することで、
+            \begin{equation}
+                H =  \begin{pmatrix}
+                    -1 & 0 \\
+                    0 & 1
+                \end{pmatrix} \quad
+                s^2 = ^t\!\mathbf{x} H \mathbf{x} = ^t\!\mathbf{x'} H \mathbf{x'}
+            \end{equation}
+            とローレンツ変換における不変量である世界距離$s^2$を表現することができる。
+            このテンソルについては後に詳しく触れるが、反変ベクトルと共変ベクトル間の変換などに利用される。
+            直感として、$-1$が入っている1行1列の部分は、時間の部分が複素数的な性質を示すことを暗に表現していると捉えることができる。
+            
         \section{4元ベクトル}
+            先ほどまでは2次元時空について考えていたが、それを4次元に拡張する。
+            \begin{equation}
+                (x^\mu) = (x^0, x^1, x^2, x^3)
+            \end{equation}
+            のように定義したものを\textbf{4元位置ベクトル}といい、これを用いて、
+            \begin{equation}
+                (u^\mu) = (u^0, u^1, u^2, u^3) = \left( \frac{dx^0}{d\tau}, \frac{dx^1}{d\tau}, \frac{dx^2}{d\tau}, \frac{dx^3}{d\tau} \right)
+            \end{equation}
+            を\textbf{4元速度ベクトル}という。
+            微分自体は、固有時間$\tau$で行われていることに注意してほしい。
+            4元ベクトル自体は、一つの慣性系上で定義されるものなので、微分をする際はその慣性系に付随する固有時間で微分しないといけないからである。
+
         \section{共変ベクトルと反変ベクトル}
-        \section{ローレンツ変換}
+            座標系の変換は、(\ref{eq:3k})式で表された。
+            このようなベクトルを\textbf{反変ベクトル}という。
+            この言葉の意味は後で説明する。
+            これに対して、基底ベクトルの変換では、
+            \begin{equation}
+                \mathbf{e'} = A^{-1} \mathbf{e}
+            \end{equation}
+            のように、変換をする際に逆行列を用いる。
+            このようなベクトルを\textbf{共変ベクトル}という。
+            つまり、ローレンツ変換をする際に、\textbf{基底の変換と同じように変換するベクトルを共変ベクトル}といい、\textbf{基底の変換と逆の変換をするベクトルを反変ベクトル}という。
+            そして、反変ベクトル$(a^{\mu})$と共変ベクトル$(a_\mu)$はそれぞれ以下のような添え字を使って表現する。
+            \begin{equation}
+                (a^{\mu}) = (a^0, a^1, a^2, a^3) \quad (a_{\mu}) = (a_0, a_1, a_2, a_3)
+            \end{equation}
+            この2つのベクトルの間には、
+            \begin{equation}
+                (a_{\mu}) =  (a_0, a_1, a_2, a_3) = (-a^0, a^1, a^2, a^3) 
+            \end{equation}
+            のような関係があり、第0成分の符号だけが違っている。
+            2次元時空の章で定義した基本ベクトル$H$を4次元に拡張すると、
+            \begin{equation}
+                H = \begin{pmatrix}
+                    -1 & 0 & 0 & 0 \\
+                    0 & 1 & 0 & 0 \\
+                    0 & 0 & 1 & 0 \\
+                    0 & 0 & 0 & 1
+                \end{pmatrix}
+            \end{equation}
+            と表されることから、
+            \begin{equation}
+                a_{\mu} = H a^{\mu}
+            \end{equation}
+            という関係が成り立つ。
+
+        \section{ローレンツ変換の4元表式}
+            ここまでしてきた議論を元に、ローレンツ変換の表式を4元ベクトルを用いて表現する。
+            先に断っておくが、ここから先は\textbf{アインシュタインの縮約記法}に基づいた記法でローレンツ変換の表式を
 
     \chapter{相対論的力学}
     \chapter{相対論的電磁気学}
