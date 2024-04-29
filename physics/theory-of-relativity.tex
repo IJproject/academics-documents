@@ -233,26 +233,74 @@
                 (a_{\mu}) =  (a_0, a_1, a_2, a_3) = (-a^0, a^1, a^2, a^3) 
             \end{equation}
             のような関係があり、第0成分の符号だけが違っている。
+
+        \section{ローレンツ変換の4元表式}
+            ここまでしてきた議論を元に、ローレンツ変換の表式を4元ベクトルを用いて表現する。
+            先に断っておくが、ここから先は\textbf{アインシュタインの縮約記法}に基づいた記法でローレンツ変換の表式を表現する。
             2次元時空の章で定義した基本ベクトル$H$を4次元に拡張すると、
             \begin{equation}
-                H = \begin{pmatrix}
+                H = (\eta_{\mu\nu}) \begin{pmatrix}
                     -1 & 0 & 0 & 0 \\
                     0 & 1 & 0 & 0 \\
                     0 & 0 & 1 & 0 \\
                     0 & 0 & 0 & 1
                 \end{pmatrix}
             \end{equation}
-            と表されることから、
-            \begin{equation}
-                a_{\mu} = H a^{\mu}
-            \end{equation}
+            と表され、反変ベクトルと共変ベクトルの間には、
+            \begin{align}
+                a_{\mu} &= \eta_{\mu\nu} a^{\nu} \\
+                a^{\mu} &= \eta^{\mu\nu} a_{\nu}
+            \end{align}
             という関係が成り立つ。
+            この基本テンソルには、反変ベクトルと共変ベクトルを変換する役割があることがわかる。
+            さらに、微小世界距離$ds^2$について、
+            \begin{equation}
+                ds^2 = \eta_{\mu\nu} dx^{\mu} dx^{\nu} = -c^2d\tau^2
+            \end{equation}
+            という関係式が成り立つことは、実際に添字に数字を入れてみれば分かる。
+            この基本テンソルの性質として、逆行列が自分自身に等しいことから、
+            \begin{equation}
+                \eta^{\mu\nu} = \eta_{\mu\nu}
+            \end{equation}
+            という関係も成り立つ。
+            最後にローレンツ変換の行列は、
+            \begin{equation}
+                A = (\alpha^\mu_\nu) = \begin{pmatrix}
+                    \gamma & - \frac{V}{c} \gamma & 0 & 0 \\
+                    - \frac{V}{c} \gamma & \gamma & 0 & 0 \\
+                    0 & 0 & 1 & 0 \\
+                    0 & 0 & 0 & 1
+                \end{pmatrix}
+            \end{equation}
+            という式で表される。
+            最後に、内積の定義として、
+            \begin{equation}
+                \eta_{\mu\nu}a^{\mu} b^{\nu} = a_{\mu} b^{\mu} = a^{\mu} b_{\mu} = - a^0 b^0 + a^1 b^1 + a^2 b^2 + a^3 b^3
+            \end{equation}
+            と表される。
+            内積自体は物理学的現象を本質的に表現するべき値であり、座標変換に対して不変な量であるように定義されるはずである。
+            式の形を見ると、世界距離$s^2$の定義式と同じ形をしている。
+            つまり、この内積の値はローレンツ不変であることがわかり、内積の定義として適切であることが見て取れる。\par
+            微分演算子の表記について、
+            \begin{equation}
+                \partial_{\mu} = \frac{\partial}{\partial x^{\mu}}
+            \end{equation}
+            というように表す。
+            さらに、この微分演算子を作用させた際、
+            \begin{equation}
+                \frac{\partial S(x)}{\partial x^\mu} = \partial_{\mu} S(x) = S_{,\mu}(x)
+            \end{equation}
+            というように表記する。
 
-        \section{ローレンツ変換の4元表式}
-            ここまでしてきた議論を元に、ローレンツ変換の表式を4元ベクトルを用いて表現する。
-            先に断っておくが、ここから先は\textbf{アインシュタインの縮約記法}に基づいた記法でローレンツ変換の表式を
+
+            \section{テンソル}
+
 
     \chapter{相対論的力学}
+        \section{運動方程式}
+        \section{運動量}
+        \section{エネルギー}
+
     \chapter{相対論的電磁気学}
     \chapter{一般相対論達観}
 
