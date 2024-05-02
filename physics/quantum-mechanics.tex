@@ -108,8 +108,71 @@
             ゼロ点運動やゼロ点エネルギー
             縮退やエネルギー準位
 
+        \section{球対称ポテンシャル}
+            原子などのような球対称ポテンシャルをもつモデルを考える際には、デカルト座標系での表示よりも極座標形式の方が良い。
+            そこで、シュレーディンガー方程式を極座標形式に書き換えると、
+            \begin{equation}
+                -\frac{\hbar^2}{2m} \left( \frac{1}{r^2} \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} + \frac{1}{r^2 \sin \theta} \frac{\partial}{\partial \theta} \sin \theta \frac{\partial}{\partial \theta} + \frac{1}{r^2 \sin^2 \theta} \frac{\partial^2}{\partial \phi^2} \right) \varphi(r, \theta, \phi) + V(r) \varphi(r, \theta, \phi) = E \varphi(r, \theta, \phi)
+            \end{equation}
+            となる。
+            ここで、波動関数$\varphi(r, \theta, \phi)$を
+            \begin{equation}
+                \varphi(r, \theta, \phi) = R(r) Y(\theta, \phi)
+            \end{equation}
+            と書き換えることにより、
+            \begin{align}
+                -\frac{\hbar^2}{2m} \left( \frac{1}{r^2} \frac{d}{dr} r^2 \frac{d}{dr} R(r) \right) + V(r) R(r) = E R(r) \\
+                \left( \frac{1}{\sin \theta} \frac{\partial}{\partial \theta} \sin \theta \frac{\partial}{\partial \theta} + \frac{1}{\sin^2 \theta} \frac{\partial^2}{\partial\phi^2} \right) Y(\theta, \phi) = \lambda Y(\theta, \phi)
+            \end{align}
+            というように動径方向と角度方向の2つに分離して固有値方程式を考えることができる。\par
+            先に角度方向について考える。
+            結果だけ記述しておくと、固有値方程式の固有値と固有ベクトルはそれぞれ
+            \begin{equation}
+                \left( \frac{1}{\sin \theta} \frac{\partial}{\partial \theta} \sin \theta \frac{\partial}{\partial \theta} + \frac{1}{\sin^2 \theta} \frac{\partial^2}{\partial\phi^2} \right) Y_l^m(\theta, \phi) = l(l+1) Y_l^m(\theta, \phi)
+            \end{equation}
+            と表される。
+            この固有ベクトルは\textbf{球面調和関数}と呼ばれている。
+            さらにこの固有ベクトルは、角運動量に対しても固有ベクトルとなり、
+            \begin{align}
+                \boldsymbol{l}^2 Y_l^m(\theta, \phi) = l(l+1) \hbar^2 Y_l^m(\theta, \phi) \\
+                l_z Y_l^m(\theta, \phi) = m \hbar Y_l^m(\theta, \phi)
+            \end{align}
+            という2つの固有値方程式が成り立つ。
+            これらの式から読み取れることは、後述するので一旦置いておく。\par
+            次に、動径成分について考える。
+            こちらについては、どんな系かによって結果が大きく変わってくるので、定性的な話だけに留めておく。
+            動径方向の固有値方程式の固有値はエネルギーを表す。
+            つまり、中心からの距離に関して調べてあげることで、エネルギーを計測することができ、このエネルギーは$n$という量子数に依存する。
+            ここまで出てきた量子数について、$n$は\textbf{主量子数}、$l$は\textbf{方位量子数}、$m$は\textbf{磁気量子数}という。
+            主量子数$n$はエネルギーの値に直接的に関係しており、エネルギー準位を決定するような量子数であるといえる。
+            方位量子数$l$は、角運動量の2乗$\boldsymbol{l}^2$の固有値として現れるので、角運動量の大きさを表現するような量子数であるといえる。
+            磁気量子数$m$は、$l_z$の固有値として現れるため、$z$軸方向の角運動量を表現している量子数であるといえる。
+            ここで重要なことは、$l_x$と$l_y$については確定値が得られないということである。
+            $l_z$には固有値方程式があり、固有値が確定値として得られるが、$l_x$と$l_y$は球面調和関数を固有ベクトルとしていない。
+            実際、
+            \begin{align}
+                l_+ &= l_x + i l_y \\
+                l_- &= l_x - i l_y
+            \end{align}
+            というようにおくことで、
+            \begin{align}
+                l_+ Y_l^m(\theta, \phi) &= \hbar \sqrt{l(l+1) - m(m+1)} Y_l^{m+1}(\theta, \phi) \\
+                l_- Y_l^m(\theta, \phi) &= \hbar \sqrt{l(l+1) - m(m-1)} Y_l^{m-1}(\theta, \phi)
+            \end{align}
+            という固有値方程式が成り立つ。
+            これは、雰囲気として生成消滅演算子のような働きをするような演算子であると考えることができる。\par
+            このように$z$方向のように、ある特定の方向の固有値は確定値として得られるが、他の2つの方向については確定値が得られない。
+            これはある種の不確定性のようなものであり、\textbf{一つの方向に注目して角運動量を測定することはできるが、それ以外の方向に対しては確定値を得られない}ということを表している。
+            これらの考え方は、電子が内在的に持つと考えられるスピンの角運動量を定義するときに活用される。
 
     \chapter{行列と状態ベクトル}
+        \section{行列と量子力学}
+        \section{基底変換}
+
+        \section{交換関係}
+
+        \section{ハイゼンベルグの運動方程式}
+
     \chapter{摂動論}
     \chapter{スピン}
     \chapter{多粒子系}
