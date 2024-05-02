@@ -1,6 +1,7 @@
 \documentclass[a4paper]{jsreport}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{physics}
 
 \title{量子力学 - Quantum Mechanics}
 
@@ -166,8 +167,47 @@
             これらの考え方は、電子が内在的に持つと考えられるスピンの角運動量を定義するときに活用される。
 
     \chapter{行列と状態ベクトル}
+
         \section{行列と量子力学}
+            ここでは、量子力学を行列形式で表すこととする。
+            この章以後は、行列とベクトルを用いて量子力学の議論を進めていくこととする。\par
+            これまで扱ってきた関数はベクトルへ、演算子は行列として表現される。
+            例えば、波動関数$\psi(\boldsymbol{r})$は、
+            \begin{equation}
+                \psi(\boldsymbol{r}) \rightarrow \ket{\psi}
+            \end{equation}
+            というように\textbf{ブラケット記法}で表現する。
+            ちなみに、このベクトルを\textbf{ケットベクトル}といい、このベクトルの複素共役（双対ベクトル）は、
+            \begin{equation}
+                \ket{\psi}^\ast = \bra{\psi}
+            \end{equation}
+            と表現され、これを\textbf{ブラベクトル}という。
+            これらの定義を用いると、内積は、
+            \begin{equation}
+                (\psi, \psi) = \braket{\psi}{\psi}
+            \end{equation}
+            と記述することになる。
+            もちろん物理量$F$の期待値は
+            \begin{equation}
+                \ev{F} = \mel{\psi}{F}{\psi}
+            \end{equation}
+            と表現される。
+
         \section{基底変換}
+            量子力学において、基底の変換には\textbf{ユニタリー行列}と呼ばれるものを使用する。
+            ユニタリー行列というのは、
+            \begin{equation}
+                T^{-1} = T^\ast \quad  TT^\ast = T^\ast T = E
+            \end{equation}
+            を満たすような行列$T$のことである。
+            状態ベクトルを$V$、何かしらの演算子を$A$をおくと、それぞれは
+            \begin{align}
+                V' &= TV \\
+                A' &= TAT^{-1} = TAT^\ast
+            \end{align}
+            というように変換される。
+            演算子は少し特徴的な変換が施されるが、これは固有値を保持するために、変換後の演算子に直接固有値を渡すのだと考えれば直感的にも捉えやすいと思う。
+            固有値はその物理系の情報を持っているものであり、変換に際してそれが変更されてしまってはいけないからである。
 
         \section{交換関係}
 
