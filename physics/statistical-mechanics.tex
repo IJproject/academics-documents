@@ -17,7 +17,32 @@
             気が向いたら書くヲ
 
     \chapter{確率論と測定}
+            
+            統計力学で扱う系は、多数の粒子からなる系である。
+            その系の各粒子に対して、それぞれの位置や運動量などの物理量を考えることは不可能に等しい。
+            そこで、適切な確率モデルを用いて記述することにより、物理学的な現象を記述していく。
+            それに必要な理論の準備をこの章で行う。
+
         \section{確率と期待値}
+            確率の満たすべき性質は、
+            \begin{align}
+                p_i \ge 0 \\
+                \sum_{i=1}^{\infty} p_i = 1
+            \end{align}
+            のように、非負性と規格化条件を満たすことである。
+            もちろん、統計力学で使用する確率モデルもこれらを満たすように定義されなければならない。\par
+            次に、事象$A$に対して、
+            \begin{equation}
+                \chi_i[A] = \begin{cases}
+                    1 & \text{if $A$ occurs} \\
+                    0 & \text{otherwise}
+                \end{cases}
+            \end{equation}
+            というように状態$i$で$A$が起こるかどうかを表現できるような関数を用意することで、
+            \begin{equation}
+                Prob_p[A] = \sum_{i=1}^{N} p_i \chi_i[A]
+            \end{equation}
+            というように事象$A$が生じる確率を定義することができる。
             
 
         \section{物理量のゆらぎ}
@@ -31,5 +56,21 @@
         \section{状態数}
 
     \chapter{カノニカル分布}
+        \section{マクロな系との繋がり}
+        \section{ミクロカノニカル分布}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+
+    \chapter{格子振動}
+
+
+    \chapter{電磁場}
         
 \end{document}
