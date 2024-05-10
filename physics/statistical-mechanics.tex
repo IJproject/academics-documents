@@ -42,31 +42,116 @@
             \begin{equation}
                 Prob_p[A] = \sum_{i=1}^{N} p_i \chi_i[A]
             \end{equation}
-            というように事象$A$が生じる確率を定義することができる。
-            
+            というように事象$A$が生じる確率を定義することができる。\par
+            次に\textbf{期待値}を定義する。
+            期待値は、
+            \begin{equation}
+                \ev{\hat{f}} = \sum_{i=1}^{N} f_i p_i 
+            \end{equation}
+            と定義され、ある物理量$\hat{f}$について測定したときに得られる測定値（確定値）のことである。
+            例えば、ハミルトニアンであれば期待値はエネルギーとなる。
 
         \section{物理量のゆらぎ}
+            ある物理量$\hat{f}$の測定をした際、その期待値だけを測定値として得られるわけではない。
+            多少の振れ幅があり、その振れ幅を\textbf{ゆらぎ}というのだが、そのゆらぎが期待値に収束するといったことである。
+            ゆらぎ$\sigma[\hat{f}]$は、
+            \begin{equation}
+                \sigma[\hat{f}] = \sqrt{\ev{\hat{f}^2} - \ev{\hat{f}}^2}
+            \end{equation}
+            と計算することができる。
+            この値が大きいほど、得られる測定値のばらつきが大きいということになる。\par
+            ここで、重要なゆらぎに関する不等式である、\textbf{チェビシェフの不等式}について触れておく。
+            これは、任意の正の実数$\epsilon$に対して、
+            \begin{equation}
+                Prob_p \left[\abs{\hat{f} - \ev{\hat{f}} \ge \epsilon} \right] \le \frac{\sigma_p[\hat{f}]^2}{\epsilon^2}
+            \end{equation}
+            という関係が成り立つ。
+            この$\epsilon$は測定精度を表していて、$\sigma_p[\hat{f}] \ll \epsilon$が成り立つ時、測定された値が真の値に非常に近いということを意味する。
+            確率モデルに基づいた理論を構築する関係上、こういった測定誤差などについて考慮することは非常に重要である。
+            さらに、この不等式を使用することで\textbf{大数の法則}を導くことができる。
 
-
-        \section{連続的な確率への拡張}
-
-        
     \chapter{量子論}
         \section{エネルギー固有値}
+            量子論において、特定のエネルギー状態が確定しているとき、それを\textbf{エネルギー固有状態}といい、それに対応するエネルギーを\textbf{エネルギー固有値}という。
+            統計力学では、このエネルギー固有値は非常に重要で、各固有状態に対してラベルを振り、それぞれのエネルギー固有値を使用した確率モデルを構築していく（カノニカル分布など）。\par
+            エネルギー固有値は、シュレーディンガー方程式を解くことで求めることができる。
+            一次元自由粒子モデルの場合、固有状態を$n=1, 2...$、固有値を$E_n=E_0 n^2$という解が得られる。
+            この結果を3次元自由粒子N個の系に拡張して、
+
         \section{状態数}
+
 
     \chapter{カノニカル分布}
         \section{マクロな系との繋がり}
+            マクロな体系を持つ熱力学との整合性を保つように、ミクロな体系を持つ統計力学は確率モデルを導入して理論を構築する。
+            つまり、熱力学での制約は統計力学の中でも満たされなければならない。\par
+            制約の一つ目は、\textbf{平衡状態$(U; V, N)$について、マクロな性質はただ一つに定まる}ということである。
+            統計力学では、エネルギーが$U$の状態全てを含め、\textbf{許されるエネルギー状態}と表現する。
+            この許されるエネルギー状態のうち、共通して見られる性質（\textbf{典型的な性質}）がマクロな性質として現れると考える。\par
+            制約の二つ目は、\textbf{平衡状態への緩和}である。
+            これは、典型的な状態に収束するということから満たすことができる。\par
+            統計力学における確率モデルを導入する際、\textbf{等重率の原理}という制約を与える。
+            この原理は、許される量子状態それぞれに同じ重み（同様に確からしいという考え方と似ている）を与えるというものである。
+            このような考え方ができるのは、許される量子状態それぞれを区別することが難しいという、測定の観点から見ると自然な考え方である。\par
+
         \section{ミクロカノニカル分布}
-        \section{}
-        \section{}
-        \section{}
-        \section{}
-        \section{}
-        \section{}
-        \section{}
-        \section{}
-        \section{}
+        \section{カノニカル分布}
+            ミクロカノニカル分布よりも汎用性が高い確率分布である\textbf{カノニカル分布}を導入する。
+            ミクロカノニカル分布を導出した時と同様に、状態数から議論を進めていくことで、
+            \begin{equation}
+                p_i = \frac{e^{-\beta E_i}}{\sum\limits_{i} e^{-\beta E_i}}
+            \end{equation}
+            と確率を表現することができる。
+            ちなみに、
+            \begin{equation}
+                Z(\beta) = \sum_{i} e^{-\beta E_i}
+            \end{equation}
+            は分配関数と呼ばれている。
+            粒子を区別するべきではないとき、分配関数は
+            \begin{equation}
+                Z(\beta) = \frac{1}{N!} \sum_{i} e^{-\beta E_i}
+            \end{equation}
+            と表される。
+            ここまでの議論を踏まえて、物理量$\hat{f}$の期待値を計算すると、
+            \begin{equation}
+                \ev{\hat{f}} = \sum_{i}f_ip_i = \frac{1}{Z(\beta)} \sum_{i}f_i e^{-\beta E_i}
+            \end{equation}
+            となる。
+
+        \section{エネルギーの期待値とゆらぎ}
+            得られた期待値の表式を用いて、ハミルトニアン$\hat{H}$の固有値（エネルギー固有値）を求める。
+            計算の過程は省略するが、
+            \begin{equation}
+                \ev{\hat{H}} = -\frac{\partial}{\partial \beta} \log{Z(\beta)}
+            \end{equation}
+            と表される。
+            さらにエネルギー固有値のゆらぎについては、固有値を求めたときと同様の計算をすることで、
+            \begin{equation}
+                \sigma[\hat{H}] = \sqrt{\frac{\partial^2}{\partial \beta ^2} \log{Z(\beta)}}
+            \end{equation}
+            さらに、熱容量については、
+            \begin{equation}
+                C(T) = \frac{d}{dT} \ev{\hat{H}} = \frac{1}{kT^2}\frac{d^2}{d \beta ^2}\log{Z(\beta)} = \frac{1}{kT^2}(\sigma[\hat{H}])^2
+            \end{equation}
+            と表すことができる。
+
+        \section{熱力学との関係性}
+            ギブス・ヘルムホルツの関係式は、ヘルムホルツの自由エネルギー$F$を用いて、
+            \begin{equation}
+                U(T; V, N) = \frac{\partial}{\partial\beta}{\beta F(\beta, V, N)}
+            \end{equation}
+            と表現される。
+            これから、$F$は測定精度を表していて
+            \begin{equation}
+                F(\beta, V, N) = - \frac{1}{\beta} \log{Z(\beta)}
+            \end{equation}
+            と表される。
+            このヘルムホルツの自由エネルギーの表式を利用することで
+            \begin{equation}
+                S = \frac{U - F}{T}
+            \end{equation}
+            という関係式からエントロピー$S$を求めることができる。
+            このエントロピーという量は、統計力学において重要な意味をもつ量である。
 
     \chapter{格子振動}
 
