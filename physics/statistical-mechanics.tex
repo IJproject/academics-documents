@@ -142,7 +142,7 @@
             \end{equation}
             と表現される。
             これから、$F$は測定精度を表していて
-            \begin{equation}
+            \begin{equation} \label{eq:4a}
                 F(\beta, V, N) = - \frac{1}{\beta} \log{Z(\beta)}
             \end{equation}
             と表される。
@@ -153,9 +153,54 @@
             という関係式からエントロピー$S$を求めることができる。
             このエントロピーという量は、統計力学において重要な意味をもつ量である。
 
-    \chapter{格子振動}
+    % \chapter{カノニカル分布の応用例}
+    %     \section{磁性}
+    %     \section{古典的描像}
 
 
-    \chapter{電磁場}
+    % \chapter{格子振動}
+
+    % \chapter{電磁場}
+
+    \chapter{グランドカノニカル分布}
+        \section{グランドカノニカル分布}
+            カノニカル分布は、各エネルギー固有状態に通し番号を振り、それぞれに等重率の原理を適用するような確率モデルであった。
+            グランドカノニカル分布はそれに加えて、粒子数の変化も考慮した確率モデルになっている。
+            つまり、扱う各平衡状態は$(N, i)$で指定することになる。
+            ここからは便宜上、粒子を区別することが原理的に不可能なことから、平衡状態を$(N_i, E_i)$と表現することにする。\par
+            まず、グランドカノニカル分布における平衡状態$(N_i, E_i)$の起こる確率は、カノニカル分布の導出方法と同様にすることで、
+            \begin{equation}
+                p_i = \frac{1}{\Xi(\beta, \mu)} \exp(-\beta E_i + \beta \mu N_i)
+            \end{equation}
+            と表される。
+            分母に現れた$\Xi_V(\beta, \mu)$は\textbf{大分配関数}と呼ばれ、
+            \begin{equation}
+                \Xi(\beta, \mu) = \sum_{i=1}^{\infty}\exp(-\beta E_i + \beta \mu N_i) 
+            \end{equation}
+            と表される。
+            ここで出てきた$\mu$は\textbf{化学ポテンシャル}と呼ばれる量で、\textbf{系の粒子数の変化に対して、系のエネルギーがどのように変化するのか}を表す値である。
+            もちろん、上記の確率の表式を用いることで、期待値と測定値の揺らぎについての式を導出することが可能であるが、自明すぎるのでここでは省略する。
+
+        \section{グランドカノニカル分布の諸性質}
+            計算過程については省略するが、大分配関数を偏微分することで、
+            \begin{align}
+                \ev{N} &= \frac{1}{\beta} \frac{\partial}{\partial\mu} \log \Xi(\beta, \mu) \\
+                \ev{H} &= - \frac{\partial}{\partial \beta} \log \Xi(\beta, \mu) + \frac{\mu}{\beta}\frac{\partial}{\partial \mu} \log \Xi(\beta, \mu)
+            \end{align}
+            と期待値を計算することができる。
+            カノニカル分布では、(\ref{eq:4a})式のような関係式で、分配関数と自由エネルギーを結びつけていた。
+            これをグランドカノニカル分布でも適用すると、
+            \begin{equation}
+                J(V, \beta, \mu) = - \frac{1}{\beta} \log \Xi(\beta, \mu)
+            \end{equation}
+            と表現することになり、この$J(V, \beta, \mu)$を\textbf{グランドポテンシャル}という。
+            このポテンシャルは、表式を見るとわかるように、ヘルムホルツの自由エネルギーに粒子数の変化を考慮させたような量である。
+
+    \chapter{量子理想気体}
+        \section{多粒子系の量子論}
+        \section{状態の数}
+        \section{平衡状態の記述（グランドカノニカル分布）}
+        \section{理想フェルミ気体}
+        \section{理想ボース気体}
         
 \end{document}
