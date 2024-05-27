@@ -1,0 +1,141 @@
+\documentclass[a4paper]{jsreport}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{physics}
+
+\title{固体物理学 - Solid State Physics}
+
+\begin{document}
+
+    \maketitle
+
+    \tableofcontents
+
+    \chapter{オーバービュー}
+    \chapter{結晶構造}
+        \section{格子ベクトル}
+            ブラべ格子、格子ベクトルの表式\par
+            結晶は膨大な数の原子が並んで形成されている。
+            その原子は規則正しく並んでいる（とする）わけであるが、どの原子から見ても景色が同じような点の集まりを\textbf{ブラべ格子}という。
+            表現が分かりづらいので少し噛み砕くと、どのような周期性を持って原子が並んでいるのかを判別するためにピックアップした原子群といったようなイメージである。
+            基本的な固体物理学のアプローチとして、周期構造の中の一つ（\textbf{単位格子}）で解析をし、それを周期的境界条件で実際のスケールに拡張する。
+            そのプロセスの中で、ブラべ格子を考えることは非常に意義のあることである。\par
+            その周期的境界条件をどのように表現するのか。
+            ここで、\textbf{格子ベクトル}を\textbf{基本並進ベクトル}と呼ばれる$\boldsymbol{a_i}$を使用して、
+            \begin{equation} \label{eq:21a}
+                \boldsymbol{T} = n_1 \boldsymbol{a_1} + n_2 \boldsymbol{a_2} + n_3 \boldsymbol{a_3}
+            \end{equation}
+            と定義し、格子点の位置$\boldsymbol{r}$、$\boldsymbol{r'}$を用いて、
+            \begin{equation}
+                \boldsymbol{r'} = \boldsymbol{r} + \boldsymbol{T}
+            \end{equation}
+            となることとする。
+            この格子ベクトルを使えば、周期性を表現することができる。
+
+        \section{結晶面}
+            結晶（格子）の面を表現するには\textbf{ミラー指数}と呼ばれる量を使用し、$(hkl)$というように表記する。
+            ここでは、基本並進ベクトル$\boldsymbol{a_i}$を使って、その軸上での点$0$から$1$の範囲で指定し、その逆数をそれぞれ取ったものがそれらの点を繋いでできる面がミラー指数で表される結晶面となる。
+            文章だけで説明することは難しいので、ここではこれぐらいの記述に留めておく。
+
+        \section{逆格子ベクトル}
+            実空間での解析よりも、\textbf{逆格子空間}（波数空間）と呼ばれる、実空間と逆の次元を持つような空間での解析の方が見通しが良い。
+            理由は様々であるが、運動量や分散との対応が分かりやすくなるなどがある。\par
+            実空間での周期性を損なうことがないように、逆格子空間を定義していきたい。
+            任意の物理量$f(\boldsymbol{r})$について、実格子の周期性から
+            \begin{equation} \label{eq:23a}
+                f(\boldsymbol{r} + \boldsymbol{T}) = f(\boldsymbol{r}) 
+            \end{equation}
+            が成り立つ。
+            ここで周期性に相性が良いフーリエ級数展開を利用することにより、
+            \begin{equation} \label{eq:23b}
+                f(\boldsymbol{r}) = \sum_{m} A_m \exp(i\boldsymbol{G_m} \cdot \boldsymbol{r})
+            \end{equation}
+            と表現することができ、ここで現れた$\boldsymbol{G_m}$が逆格子ベクトルに当たるものである。
+            平面波の表式と見比べると、波数$\boldsymbol{k}$に当たる部分が$\boldsymbol{G_m}$になっていることから、逆格子空間は波数空間と呼ばれることがあるのだろう。
+            以上までの議論を踏まえて、\textbf{逆格子基本並進ベクトル}を
+            \begin{equation}
+                \boldsymbol{b_i} = 2 \pi \frac{\boldsymbol{a_j} \times \boldsymbol{a_k}}{\boldsymbol{a_i} \cdot \boldsymbol{a_j} \times \boldsymbol{a_k}}
+            \end{equation}
+            と定義し、これを用いて\textbf{逆格子ベクトル}を、
+            \begin{equation}
+                \boldsymbol{G_m} = m_1 \boldsymbol{b_1} + m_2 \boldsymbol{b_2} + m_3 \boldsymbol{b_3} 
+            \end{equation}
+            と表すことにする。
+            これを実際に(\ref{eq:23b})式に代入してみると、(\ref{eq:23a})式を満たしていることが分かる。
+            ここでは、
+            \begin{equation} \label{eq:23f}
+                \boldsymbol{a_i} \cdot \boldsymbol{b_j} = 2 \pi \delta_{i,j}
+            \end{equation}
+            という関係式が成り立っており、実空間の基本並進ベクトルと長さの情報に関するものだけが逆になったような、密接すぎる関係があることは見て取れる。
+            実際、実格子空間と逆格子空間は、フーリエ変換と逆フーリエ変換により行き来することができる。
+            フーリエ変換は、重ね合わさった波を波数ごとに分離する（波束 → 単一波）に対応し、逆フーリエ変換はその逆の操作に対応する。
+            このことを考えると、(\ref{eq:23f})式で$2\pi$の因子が出てくることも直感的に理解することができる。
+
+        \section{回折条件}
+            位置$\boldsymbol{r}$にある体積素片での回折について考えたい。
+            入射波と散乱波の波数をそれぞれ$\boldsymbol{k}$、$\boldsymbol{k'}$と表現することにすると、位相差による因子は、$\exp{i(\boldsymbol{k} - \boldsymbol{k'}) \cdot \boldsymbol{r}}$と表される。
+            この位相差の因子を見て、強めあう条件は、波数差が周期性と一致するときであると言えるので、
+            \begin{equation}
+                \boldsymbol{k} - \boldsymbol{k'} = - \Delta k = \boldsymbol{G}
+            \end{equation}
+            となるときである。
+            ちなみに、この$- \Delta k$は\textbf{散乱ベクトル}と呼ばれる量である。
+            この散乱が\textbf{弾性散乱}である場合、式変形をしていくことで、
+            \begin{equation}
+                2 \boldsymbol{k} \cdot \boldsymbol{G} = G^2
+            \end{equation}
+            という表式が現れる。
+            ここまでの議論は、強め合う条件に関するもので、最後の表式は\textbf{ブラッグの条件}の別の表し方であると言える。
+
+        \section{ブリルアンゾーン}
+            実空間のウィグナーについても、拡張ゾーン形式などについても、\par
+            実空間の単位格子に\textbf{ウィグナー・サイツ・セル}と呼ばれるものがある。
+            これは各格子点との
+
+        \section{構造因子}
+        
+        
+
+    \chapter{結合}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        
+        
+
+    \chapter{フォノン}
+        p.79~
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+        \section{}
+    \section{}
+        
+    \chapter{自由電子気体}
+        6章
+    \chapter{エネルギーバンド}
+        7章
+    \chapter{フェルミエネルギー}
+        9章
+    \chapter{半導体}
+        8章
+    \chapter{超伝導}
+        10章
+    \chapter{磁性}
+        11-13章
+    \chapter{名前決めてない}
+        14章
+    \chapter{光学的性質}
+        15章
+    \chapter{電気的性質}
+        16章
+    
+    % ここから先は検討中（一旦ここまでで良いのでは？？）
+            
+\end{document}
