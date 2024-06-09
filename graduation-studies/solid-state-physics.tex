@@ -241,16 +241,80 @@
             各モードの合計のエネルギーが、系のエネルギーになるということである。
 
         \section{格子比熱}
-            フォノンはボゾン（ボーズ粒子）なので、フェルミ分布関数より
-            \begin{equation}
-                n_{\boldsymbol{k}, s} = \frac{1}{\exp{\beta \hbar \omega_s(\boldsymbol{k})} - 1}
-            \end{equation}
-            と表される。
 
         \section{熱伝導}
         
-    \chapter{自由電子気体}
-        6章
+    \chapter{自由電子フェルミ気体}
+        \section{フェルミ・ディラック分布}
+            電子は、\textbf{フェルミオン}と呼ばれる粒子である。
+            フェルミオンというのは、同じエネルギー量子状態に2つ以上の粒子が入ることができないという性質を持つ粒子のことである。
+            \textbf{パウリの排他原理}が成り立つのは、電子がフェルミオンだからである。\par
+             N電子系の平衡状態において、エネルギー$\epsilon$の状態にある確率を求める。
+             天下り的になってしまうが、量子統計力学的なアプローチから、
+             \begin{equation}
+                f(\epsilon) = \frac{1}{\exp[\beta(\epsilon - \mu)] + 1}
+             \end{equation}
+             と表され、これを\textbf{フェルミ・ディラック分布}という。
+             これと後述の状態密度を用いることで、特定の量子状態を持つ電子の粒子数を計算することができる。
+
+        \section{3次元の自由電子気体}
+             ここでは、3次元の箱に閉じ込められた自由電子について考える。
+             計算の過程は省略してしまうが、波動関数が
+             \begin{equation}
+                \psi_{\boldsymbol{k}} = \frac{1}{\sqrt{V}} \exp(i\boldsymbol{k} \cdot \boldsymbol{r})
+             \end{equation}
+             と表される（周期的境界条件を満たす）ことを用いて、エネルギーと運動量は
+             \begin{equation}
+                \epsilon_{\boldsymbol{k}} = \frac{\hbar^2}{2m} \left(k_x^2 + k_y^2 + k_z^2 \right)
+             \end{equation}
+             \begin{equation}
+                \boldsymbol{p}\psi_{\boldsymbol{k}} = \hbar \boldsymbol{k}\psi_{\boldsymbol{k}}
+             \end{equation}
+             と表される。
+             ここからエネルギーに注目して議論を進めていく。
+             電子をエネルギー準位の低い方から順々に詰めていった際、その基底状態における最大エネルギーを\textbf{フェルミエネルギー}という。
+             このフェルミエネルギーの波数を$k_F$と表すことにすると、フェルミエネルギー$\epsilon_F$は
+             \begin{equation}
+                \epsilon_F = \frac{\hbar^2}{2m} k_F^2
+             \end{equation}
+             と表されることになる。
+
+        \section{状態密度}
+             \textbf{逆格子空間において、各格子点は量子状態に対応する}。
+             これは単純に、波数ベクトルがエネルギー準位を決定するためであり、3次元の自由電子気体での議論から理解できることである。
+             よって、逆格子空間においては単位格子の体積$2\pi/L$に、一つの量子状態（電子のスピンを考慮していないので、一つの量子状態にスピン自由度２）が存在することになるので、電子の総数を
+             \begin{equation}
+                N = 2 \times \frac{4\pi {k_F}^3 / 3}{(2\pi/L)^3} = \frac{V}{3\pi^2}{k_F}^3
+             \end{equation}
+             と表すことができる。
+             ここで、$k_F$を半径とした球を\textbf{フェルミ球}といい、基底状態において量子状態がこの球内に収まっていることを表す。
+             これにより、フェルミエネルギーを粒子数を用いて、
+            \begin{equation}
+                \epsilon_F = \frac{\hbar^2}{2m} \left(\frac{3\pi^2 N}{V}\right)^{2/3}
+            \end{equation}
+            と表され、これは粒子数を増やすとフェルミエネルギーが上昇するという直感にあった結果を得ることができる。
+            この直感というのは、電子は低い準位からつまっていくわけだが、電子が増えることで、どの電子は空いている準位（フェルミエネルギー近傍）に入るため、フェルミエネルギーは上昇するだろうということである。
+            さらに粒子数はエネルギーを用いて、
+            \begin{equation}
+                N = \frac{V}{3\pi^2} \left(\frac{2m\epsilon}{\hbar^2} \right) ^ {3/2}
+            \end{equation}
+            と表される。
+            これより、エネルギー変化に対する粒子数の変化を考えることができ、
+            \begin{equation}
+                D(\epsilon) = \frac{dN}{d\epsilon} = \frac{V}{2\pi^2} \left(\frac{2m}{\hbar^2} \right) ^ {3/2} \epsilon^{1/2}
+            \end{equation}
+            で表される$D(\epsilon)$を\textbf{状態密度}という。
+            これは特定のエネルギーを持つ電子がどれだけあるかを表現した量である。
+            ここまでの議論を踏まえると、基底状態における状態密度$D(\epsilon)$に、そこに電子がある確率$f(\epsilon)$を掛けて積分すれば、粒子数になることは直感的にも理解できる。
+            \begin{equation}
+                N = \int D(\epsilon) f(\epsilon) d\epsilon
+            \end{equation}
+            適切な定義域を設定する必要があるので、ここでは不定積分にしている。
+
+        \section{電子気体の比熱}
+
+
+
     \chapter{エネルギーバンド}
         7章
     \chapter{フェルミエネルギー}
