@@ -316,9 +316,49 @@
 
 
     \chapter{エネルギーバンド}
-        7章
-    \chapter{フェルミエネルギー}
-        9章
+        \section{結晶内の電子}
+            結晶内の電子の状態を記述する方法として、\textbf{1電子近似}という方法を採用する。
+            これは、電子間の相互作用がないものとして扱う方法である。
+            これにより、比較的シンプルなシュレーディンガー方程式を解くことができる。
+            結晶内の電子は、
+            \begin{equation}
+                \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\boldsymbol{r}) \right] \psi(\boldsymbol{r}) = E \psi(\boldsymbol{r})
+            \end{equation}
+            というシュレーディンガー方程式に従い、式中の$V(\boldsymbol{r})$を\textbf{結晶ポテンシャル}といい、格子が電子に与える相互作用ポテンシャルである。
+            このポテンシャルは周期的であるので、基本並進ベクトル（格子ベクトル）$\boldsymbol{R_n}$を用いて、
+            \begin{equation}
+                V(\boldsymbol{r}) = V(\boldsymbol{r} + \boldsymbol{R_n})
+            \end{equation}
+            と表される。
+            このポテンシャルで表されるような系のシュレーディンガー方程式の解は、\textbf{ブロッホの定理}により、
+            \begin{equation}
+                \psi_{\boldsymbol{k}}(\boldsymbol{r}) = \exp(i\boldsymbol{k} \cdot \boldsymbol{r}) u_{\boldsymbol{k}}(\boldsymbol{r})
+            \end{equation}
+            という形で書け、
+            \begin{equation}
+                u_{\boldsymbol{k}}(\boldsymbol{r} + \boldsymbol{R_n}) = u_{\boldsymbol{k}}(\boldsymbol{r})
+            \end{equation}
+            という関係が成り立つ。
+            つまり、周期性を満たすような波動関数を得られるという定理である。
+            そのような電子を\textbf{ブロッホ電子}と呼んだり、そのような状態を\textbf{ブロッホ状態}という。
+            % 結晶運動量、有効質量
+
+        \section{空格子近似}
+
+        \section{結晶ポテンシャル}
+
+        \section{擬ポテンシャル}
+
+        \section{強束縛下の電子}
+
+        \section{電子と正孔}
+
+        \section{フェルミ面}
+
+    \chapter{電気的性質}
+        16章
+    \chapter{光学的性質}
+        15章
     \chapter{半導体}
         8章
     \chapter{超伝導}
@@ -327,10 +367,7 @@
         11-13章
     \chapter{名前決めてない}
         14章
-    \chapter{光学的性質}
-        15章
-    \chapter{電気的性質}
-        16章
+    
     
     % ここから先は検討中（一旦ここまでで良いのでは？？）
             
