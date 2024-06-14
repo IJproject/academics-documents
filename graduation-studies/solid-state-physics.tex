@@ -242,6 +242,7 @@
 
         \section{格子比熱}
 
+        \section{熱膨張}
         \section{熱伝導}
         
     \chapter{自由電子フェルミ気体}
@@ -314,7 +315,6 @@
         \section{電子気体の比熱}
 
 
-
     \chapter{エネルギーバンド}
         \section{結晶内の電子}
             結晶内の電子の状態を記述する方法として、\textbf{1電子近似}という方法を採用する。
@@ -344,8 +344,32 @@
             % 結晶運動量、有効質量
 
         \section{空格子近似}
+            エネルギーバンドを考える際の第０近似として、\textbf{空格子近似}と呼ばれるものがある。
+            この近似方法は、\textbf{格子の周期性を保っていながら、結晶ポテンシャルを持たない}という理想的なモデルである。
+            つまり、これは自由電子としての近似にあたり、適用されるシュレーディンガー方程式は、
+            \begin{equation}
+                -\frac{\hbar^2}{2m} \nabla^2 \psi = E \psi
+            \end{equation}
+            であり、周期性が保たれていることから、
+            \begin{equation}
+                \psi_{\boldsymbol{k}}(\boldsymbol{r}) = \exp(i\boldsymbol{k} \cdot \boldsymbol{r}) \exp(i\boldsymbol{G_m} \cdot \boldsymbol{r})  
+            \end{equation}
+            となり、エネルギーは、
+            \begin{equation}
+                E(\boldsymbol{k}) = \frac{\hbar^2}{2m} \left|\boldsymbol{k} + \boldsymbol{G_m} \right| ^2
+            \end{equation}
+            と表される。
+            このモデルでは、バンドギャップは生成されないことから、絶縁体や半導体を表現するようなモデルとしては不適であることがエネルギーの表式を見ることからも分かる。
+            （そもそも自由電子的な議論をする空格子近似のモデルは金属的であり、金属のバンド構造を表現することに向いた近似）
 
-        \section{結晶ポテンシャル}
+        \section{結晶ポテンシャルを含めた近似}
+            実際の格子では、結晶ポテンシャルが電子に対して働くことで、エネルギー状態に変化が生まれる。
+            波動関数を自由電子の解である平面波で展開すると、
+            \begin{equation}
+                \psi(\boldsymbol{r}) = \frac{1}{\sqrt{L}} \sum_{\boldsymbol{k}} C_{\boldsymbol{k}} e^{i\boldsymbol{k} \cdot \boldsymbol{r}}
+            \end{equation}
+
+            この辺、書くのめんどくせぇな
 
         \section{擬ポテンシャル}
 
@@ -356,19 +380,20 @@
         \section{フェルミ面}
 
     \chapter{電気的性質}
-        16章
+        \section{古典的電気伝導}
+        \section{ホール効果}
+        \section{電気抵抗}
+        \section{波数空間での電気伝導}
+        \section{ボルツマンの輸送方程式}
+        
     \chapter{光学的性質}
         15章
+    \chapter{磁性}
+        11-13章
     \chapter{半導体}
         8章
     \chapter{超伝導}
         10章
-    \chapter{磁性}
-        11-13章
-    \chapter{名前決めてない}
-        14章
-    
-    
-    % ここから先は検討中（一旦ここまでで良いのでは？？）
+    \chapter{プラズモンとか}
             
 \end{document}
