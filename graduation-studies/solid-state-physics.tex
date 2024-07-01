@@ -44,7 +44,7 @@
             実空間での周期性を損なうことがないように、逆格子空間を定義していきたい。
             任意の物理量$f(\boldsymbol{r})$について、実格子の周期性から
             \begin{equation} \label{eq:23a}
-                f(\boldsymbol{r} + \boldsymbol{T}) = f(\boldsymbol{r}) 
+                f(\boldsymbol{r} + \boldsymbol{T}) = f(\boldsymbol{r})
             \end{equation}
             が成り立つ。
             ここで周期性に相性が良いフーリエ級数展開を利用することにより、
@@ -59,7 +59,7 @@
             \end{equation}
             と定義し、これを用いて\textbf{逆格子ベクトル}を、
             \begin{equation}
-                \boldsymbol{G_m} = m_1 \boldsymbol{b_1} + m_2 \boldsymbol{b_2} + m_3 \boldsymbol{b_3} 
+                \boldsymbol{G_m} = m_1 \boldsymbol{b_1} + m_2 \boldsymbol{b_2} + m_3 \boldsymbol{b_3}
             \end{equation}
             と表すことにする。
             これを実際に(\ref{eq:23b})式に代入してみると、(\ref{eq:23a})式を満たしていることが分かる。
@@ -115,8 +115,8 @@
             $f_j$については、原子（の状態）ごとに決まった値を持つものである。
             この$S_G$は、結晶構造を如実に表すものであり、結晶にどこに光を当てるとどれほど散乱するのかなどをすることができ、例えば散乱強度が$0$になるようなパラメータでは弱め合っているということが分かる。
 
-        
-        
+
+
 
     \chapter{結合}
         \section{結合とは}
@@ -177,7 +177,7 @@
         \section{金属結合}
         \section{ファン・デル・ワールス結合}
         \section{水素結合}
-        
+
     \chapter{フォノン}
         \section{位相速度と群速度}
             波の伝わる速度には、単一の波の場合と波束の場合の2種類ある。
@@ -244,7 +244,7 @@
 
         \section{熱膨張}
         \section{熱伝導}
-        
+
     \chapter{自由電子フェルミ気体}
         \section{フェルミ・ディラック分布}
             電子は、\textbf{フェルミオン}と呼ばれる粒子である。
@@ -341,7 +341,7 @@
             という関係が成り立つ。
             つまり、周期性を満たすような波動関数を得られるという定理である。
             そのような電子を\textbf{ブロッホ電子}と呼んだり、そのような状態を\textbf{ブロッホ状態}という。
-            
+
 
         \section{空格子近似}
             エネルギーバンドを考える際の第０近似として、\textbf{空格子近似}と呼ばれるものがある。
@@ -352,7 +352,7 @@
             \end{equation}
             であり、周期性が保たれていることから、
             \begin{equation}
-                \psi_{\boldsymbol{k}}(\boldsymbol{r}) = \exp(i\boldsymbol{k} \cdot \boldsymbol{r}) \exp(i\boldsymbol{G_m} \cdot \boldsymbol{r})  
+                \psi_{\boldsymbol{k}}(\boldsymbol{r}) = \exp(i\boldsymbol{k} \cdot \boldsymbol{r}) \exp(i\boldsymbol{G_m} \cdot \boldsymbol{r})
             \end{equation}
             となり、エネルギーは、
             \begin{equation}
@@ -391,13 +391,107 @@
         \section{ボルツマンの輸送方程式}
 
     \chapter{光学的性質}
-        15章
+        \section{物質の電磁気学}
+        \section{金属の光学的性質}
+        \section{半導体と絶縁体の光学的性質}
+
     \chapter{磁性}
-        11-13章
+        \section{磁気モーメントと磁化}
+            物質の磁気的な性質は、物質内電子の持つ\textbf{磁気モーメント}という量に深く関係している。
+            議論を進めていく上で、磁荷（モノポール）の存在を仮定する。
+            その磁荷を$q_m$とすると、正負の磁荷の間の磁気モーメントは、
+            \begin{equation}
+                \boldsymbol{\mu}_m = q_m \boldsymbol{d}
+            \end{equation}
+            と表される。
+            ただ、実際に磁荷は存在していないと考えられており、磁気モーメントは電子の周回運動により定義することの方が適している。
+            この電子の周回運動による磁気モーメントは、
+            \begin{equation}
+                \boldsymbol{\mu}_m = - \frac{e}{2m} \boldsymbol{l}
+            \end{equation}
+            と表される。
+            これに対して、スピンによる磁気モーメントは、\textbf{ランデのg因子}と呼ばれる量を導入して、
+            \begin{equation}
+                \boldsymbol{\mu}_s = g \left(- \frac{e}{2m} \right) \boldsymbol{s}
+            \end{equation}
+            と表現される。
+            ハミルトニアン$H$が
+            \begin{equation}
+                H = - \mu \cdot B
+            \end{equation}
+            で表されることを考えると、これらの磁気モーメントが磁場をかけた際にエネルギー準位に変化が出るのは一目瞭然である。
+            実際、磁場をかけていない状態ではエネルギー準位は縮退しており、磁場をかけることでそのエネルギー準位は量子状態に基づいて分裂する。
+            それを\textbf{ゼーマン効果}といい、詳しい表式は省略するが、そこから\textbf{ラーモア周波数}という量も求めることができ、磁場をかけた際に磁気モーメントを持つ電子が磁場に運動状態を拘束されるような現象（歳差運動）の角周波数を得ることができる。\par
+            最後に磁化について述べておくと、物質中の磁束密度は、
+            \begin{equation}
+                \boldsymbol{B} = \mu_0 (\boldsymbol{H} + \boldsymbol{M})
+            \end{equation}
+            と表され、この$\boldsymbol{M}$は磁化ベクトルと呼ばれ、磁化率を$\chi$で表すことにすると、
+            \begin{equation}
+                \boldsymbol{M} = \chi \boldsymbol{H}
+            \end{equation}
+            と表されるので、物質中の磁束密度は、
+            \begin{equation}
+                \boldsymbol{B} = \mu_0 (1 + \chi) \boldsymbol{H}
+            \end{equation}
+            と表されることになる。
+
+        \section{常磁性}
+            不完全殻を持つような原子やイオンのことを、\textbf{磁性原子（磁性イオン）}という。
+            完全殻の磁気モーメントは平均するとゼロになるが、不完全殻の磁気モーメントは平均してゼロにならない。
+            このことから、磁場をかけると全体としてわずかに磁化し、この性質を\textbf{常磁性}という。
+            ただし、高温の場合は熱運動が支配的であるため、磁化がなくなることがある。
+            常磁性体は、磁場をかけることで$2J+1$個の縮退が解け、$m_J$で指定される状態の確率は統計力学的な議論から、
+            \begin{equation}
+                P(m_J) = \frac{\exp(- E_{m_J} B)}{\sum\limits_{m_J=-J}^{J} \exp(- E_{m_J} B)}
+            \end{equation}
+            と表される。
+            この値から磁化を求めることができ、N個の原子のある系の場合、
+            \begin{equation}
+                M = - N \mu_B g_J \sum\limits_{m_J=-J}^{J} m_J P(m_J)
+            \end{equation}
+            と表される。
+            この級数をブリュアン関数を考えることで計算することができ、詳しい計算の過程は省略するが、
+            \begin{equation}
+                M = \frac{N \mu_B^2 g_J^2 J(J+1) \beta}{3} B
+            \end{equation}
+            と表され、磁化率は
+            \begin{equation}
+                \chi = \frac{N \mu_0 \mu_B^2 g_J^2 J(J+1) \beta}{3}
+            \end{equation}
+            と表され、これは\textbf{キュリーの法則}と呼ばれる。
+            磁化率は温度に反比例し、高温の領域で磁化率が小さくなることが分かり、これは直感に従う結果である。
+
+        \section{反磁性}
+            閉殻構造を持つような原子は、常磁性ではなく\textbf{反磁性}と呼ばれる性質を持つ。
+            これは原子全体で見た時に磁気モーメントがゼロになるためで、それにより\textbf{ラーモアの反磁性}と呼ばれる現象が起こる。
+            そもそも反磁性は\textbf{レンツの法則}という、ある変化に対してそれを打ち消す向きに磁化する性質から生まれる。
+            つまり、磁化率が負の値を示すということである。
+            磁化率の詳しい計算方法については省略するが、磁気モーメントの変化$\Delta \mu $を使用して、
+            \begin{equation}
+                \chi = \frac{M}{H} = \frac{\mu_0 N Z \Delta \mu}{B}
+            \end{equation}
+            と表され、これを\textbf{ランジュバン反磁性}と呼ぶこともある。
+
+
+        \section{自由電子の磁性}
+            自由電子は、\textbf{パウリ常磁性}と呼ばれるような常磁性の性質と、\textbf{ランダウ反磁性}と呼ばれる反磁性の性質を併せ持つ。
+
+
     \chapter{半導体}
-        8章
+        \section{半導体}
+            \textbf{半導体}とは、電気伝導率が導体と絶縁体の中間のような値を持つようなもののことである。
+
+        \section{真性半導体}
+            
+
+        \section{不純物半導体}
+        \section{有効質量理論}
+        \section{p-n接合}
+
+
     \chapter{超伝導}
         10章
     \chapter{プラズモンとか}
-            
+
 \end{document}
