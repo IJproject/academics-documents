@@ -145,13 +145,73 @@
                 このような条件は、$K$のもつ構成要素（単体）が過不足なく含まれていることを保証するものである。
 
         \section{鎖複体}
-            
+            \subsection*{鎖群}
+                単体的複体$K$の向きづけられたr-単体により生成される自由加群を\textbf{r次元鎖群}$C_r(K)$という。
+                つまり、
+                \begin{equation}
+                    C_r(K) = \sum_{i} c_i \sigma_{r, i}
+                \end{equation}
+                というように表される。
+                このr次元鎖群は、r-単体によって構成されるため、r-単体と(r-1)-単体では生成元が完全に異なる。
+
+            \subsection*{境界作用素}
+                r-単体$\sigma_r$に対して、その境界を$\partial_r \sigma_r$と表す。
+                この作用素は、r-単体の境界を取り出すような働きがあり、
+                \begin{equation}
+                    \partial_r \sigma_r = \sum_{i} (-1)^i (p_0p_1 \dots \hat{p_i} \dots p_r)
+                \end{equation}
+                と表される。
+                もちろんこれは、先ほど定義した鎖群に対して作用し、
+                \begin{equation}
+                    \partial_r : C_r(K) \to C_{r-1}(K)
+                \end{equation}
+                とするような写像である。
+
+            これらより、以下のような鎖複体$C(K)$と呼ばれるものを定義することができる。
+            \begin{equation}
+                0 \xrightarrow{i} C_n(K) \xrightarrow{\partial_n} C_{n-1}(K) \xrightarrow{\partial_{n-1}} \dots \xrightarrow{\partial_2} C_1(K) \xrightarrow{\partial_1} C_0(K) \xrightarrow{\partial_0} 0
+            \end{equation}
 
         \section{輪体群と境界輪体群}
+            境界作用素を通すことによる、像と核について調べることは、次のセクションのようなホモロジー群についての議論を進めるために必要となる。
 
+            \subsection*{輪体群}
+                $c \in C_r(K)$に対して、
+                \begin{equation}
+                    \partial_r c = 0
+                \end{equation}
+                となるような$c$を\textbf{r-輪体}という。
+                r-輪体全体の集合を\textbf{r次元輪体群}$Z_r(K)$といい、これと同値な表現として、
+                \begin{equation}
+                    Z_r(K) = \text{Ker} \partial_r
+                \end{equation}
+                がある。
+
+            \subsection*{境界輪体群}
+                r-輪体に対して、$d \in C_{r+1}(K)$で、
+                \begin{equation}
+                    c = \partial_{r+1} d
+                \end{equation}
+                となるような$c$を\textbf{r-境界輪体}という。
+                r-境界輪体全体の集合を\textbf{r次元境界輪体群}$B_r(K)$といい、これと同値な表現として、
+                \begin{equation}
+                    B_r(K) = \text{Im} \partial_{r+1}
+                \end{equation}
+                がある。
+
+            ここまでの定義を踏まえると、以下のような性質を見出すことができる。
+            \begin{itemize}
+              \item $\partial_{r+1} \circ \partial_r = 0$
+              \item $B_r(K) \subset Z_r(K)$ （境界作用素を2回通ると消えるよという意味）
+            \end{itemize}
 
         \section{ホモロジー群}
-
+            単体的複体$K$に対して、\textbf{r次元ホモロジー群}$H_r(K)$を
+            \begin{equation}
+                H_r(K) = Z_r(K) / B_r(K)
+            \end{equation}
+            と定義する。
+            この量は位相不変量となる。
 
         \section{Euler標数とBetti数}
             単体的複体$K$の\textbf{r次Betti数}$b_r(K)$を
