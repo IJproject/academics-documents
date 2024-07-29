@@ -1,9 +1,10 @@
 \documentclass[a4paper]{jsreport}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{physics}
 
-\title{位相幾何学 - Topology}
+\title{幾何学 - Geometry}
 
 \begin{document}
 
@@ -11,12 +12,182 @@
 
     \tableofcontents
 
-    \chapter{位相空間論}
+    \chapter{基礎数学}
+        \section{群論}
+            \subsection*{定義}
+                集合$G$と演算$+$に対して、以下の３つの条件が成り立つような集合のことを\textbf{群}という。
+                \begin{enumerate}
+                    \item 結合法則が成り立つこと（演算が閉じていること）
+                    \item 単位元が存在すること
+                    \item 逆元が存在すること
+                \end{enumerate}
+                この群を$(G, +)$と表す。（＋は任意の演算子であり、一般的に使用されている「プラス」の意味ではない）\par
+                群のことを簡潔に表現するとすれば、定義された演算子による計算を行う際、その集合内にある数字だけで任意の計算が行える（不足した要素がない）ということであろうか。
+                外積などが良い例だが、演算は必ずしも可換とは限らず、可換の場合は\textbf{可換群（Abel群）}と言い、特別な性質を数多く持つ。
 
-    \chapter{群論}
+            \subsection*{写像}
+                集合$X$から集合$Y$への対応関係を\textbf{写像}という。
+                写像を通した$X$と$Y$の関係について、
+                \begin{itemize}
+                    \item $x \neq x'$なら$f(x) \neq f(x')$の時、\textbf{単射}であるという。（像が被らない）
+                    \item 任意の像に対して、$y = f(x)$となるような$x$が必ず１つ以上存在するとき、\textbf{全射}であるという。（像が余らない）
+                    \item 単射かつ全射の時、\textbf{全単射}であるという。（元と像が完全に１対１対応する）
+                \end{itemize}
+                これらの関係は、ここから先の議論でも重要になってくる。\par
+                次に、特別な写像をいくつか列挙しておく。
+                \begin{itemize}
+                    \item $A \subset X$の時、$i: A \to X$かつ$i(a) = a$で定められる写像を\textbf{包含写像}という。部分集合から全体の集合への自然な埋め込みを表す。
+                    \item 包含写像の特別なケースで、$i: A \to A$で定められる写像を\textbf{恒等写像}という。
+                    \item もし写像$f: X \to Y$が全単射の時、その逆である$f^{-1}: Y \to X$が定義でき、これを\textbf{逆写像}という。
+                    \item $x \in X$、$y \in Y$、$f(x)f(y) = f(xy)$の時、この写像を\textbf{準同型写像}という。演算の規則がどちらの群でも保たれるということである。
+                    \item 準同型写像かつ全単射であるとき、その写像を\textbf{同型写像}という。演算規則と元の対応が１対１対応なので、群の構造は全く同じという意味の\textbf{同型}である。（$X \cong Y$）
+                \end{itemize}
+
+            \subsection*{同値類}
+
+
+            \subsection*{Abel群}
+
+
+            \subsection*{完全系列}
+                加群$G_n$に対して、準同型写像の系列
+                \begin{equation}
+                    \dots G_{n+1} \xrightarrow{f_{n+1}} G_n \xrightarrow{f_n} G_{n-1} \dots
+                \end{equation}
+                の任意の$n$に対して、
+                \begin{equation}
+                    \text{Im} f_{n+1} = \text{Ker} f_n
+                \end{equation}
+                が成り立つ時、この系列を\textbf{完全系列}という。
+                これより、直感的にも成り立つことが分かるものではあるが、
+                \begin{equation}
+                    f_n \circ f_{n+1} = 0
+                \end{equation}
+                という関係式が得られる。
+                完全系列では、以下のような性質を持つ。
+                \begin{itemize}
+                  \item $0 \xrightarrow{g} G_1 \xrightarrow{f} G_2$が存在する $\Leftrightarrow$ $f$が単射である
+                  \item $G_1 \xrightarrow{f} G_2 \xrightarrow{g} 0$が存在する $\Leftrightarrow$ $f$が全射である
+                  \item $0 \xrightarrow{} G_1 \xrightarrow{f} G_2 \xrightarrow{} 0$が存在する $\Leftrightarrow$ $G_1 \cong G_2$である
+                  \item $0 \xrightarrow{f} G \xrightarrow{g} 0$が存在する $\Leftrightarrow$ $G = 0$である
+                  \item $0 \xrightarrow{} H \xrightarrow{f} G \xrightarrow{g} K \xrightarrow{} 0$が存在する $\Leftrightarrow$ $K \cong G/H$である（短完全系列）
+                \end{itemize}
+                これらの性質を使用することで、後述のホモロジー群の計算を容易に行うことができる。
+        \section{位相空間論}
+            \subsection*{定義}
+                位相空間は任意の集合$X$と、その部分集合族$T = \{U_i | i \in I\}$に対して、
+                \begin{itemize}
+                    \item $\emptyset, X \in T$
+                    \item $\bigcap_{i \in I} U_i \in T$
+                    \item $\bigcup_{i \in I} U_i \in T$
+                \end{itemize}
+                の３つが満たされることで定義される。
+                この時、$(X, T)$は\textbf{位相空間}であるといい、$T$は$X$に\textbf{位相}を定める。
+                直感的な解釈としては、集合$X$の部分集合族$T$の組み合わせは$X$の中に必ず収まり、$T$によって$X$内での任意の開集合を定義する（=範囲を絞る）ことが可能であるということである。
+                位相を与えるというのは、この範囲を絞るということに対応するのであろうか。
+                数直線での定義域に関する例$(\mathbb{Z}, (-2, 3))$などが非常に分かりやすい。全体の集合が$\mathbb{Z}$で、開集合（開区間）の$(-2, 3)$で位相を定めている。
+
+            \subsection*{連続写像}
+                  写像$f:X \to Y$が連続であるとは、$Y$における任意の開集合の逆像が、$X$で開集合になっているときを言う。
+                  ここで、連続性の議論をするときに逆像を使う理由は、単純に制約が強く、一般性や普遍性（位相空間の構造）が保たれることを保証できるためである。
+
+            \subsection*{近傍とHausdorff空間}
+                $N$が$x \in X$の近傍であるとは、$N$が$x$を含むような開集合を１つ以上持つことをいう。
+                ざっくりいうと、$N$と交わり、かつ$x$を包むことができるような開集合が、大きさはどうであれ定義できるものを近傍という。\par
+                さらに、任意の異なる２点$x, x'$に対して、$U_{x} \cap U_{x'} = \emptyset$となるような近傍が存在する時、\textbf{ハウスドルフ空間}であるという。
+                ２点を区別できるような開集合の取り方が１つでも存在するということである。
+
+            \subsection*{コンパクト性}
+                $X$の部分集合族$\{A_i\}$が被覆であるとは、
+                \begin{equation}
+                    X = \bigcup_{i \in I} A_i
+                \end{equation}
+                を満たすときであり、すべての$A_i$が開集合である時、\textbf{開被膜}という。
+                この被膜に対して、その中の有限個の被膜を組み合わせたものが、また被膜になっているものを\textbf{コンパクト}であるという。
+                直感的には、\textbf{任意の被膜を複数個の部分集合で覆い尽くすことができ、無限の広がりを持たない集合であること}をコンパクトと表現する。
+
+            \subsection*{連結性}
+                位相空間$X$が\textbf{連結}であるとは、$X_1 \cap X_2 = \emptyset$である時に、$X = X_1 + X_2$とは決してならないことである。
+                直感的には単純で、連結でない部分を切り目として分離した場合、$X_1 \cap X_2 = \emptyset$かつ$X = X_1 + X_2$となってしまう。
+                位相空間$X$が\textbf{弧状連結}であるとは、$f:[0,1] \to X$となるような連続写像$f$が存在して、$f(0) = x_1$、$f(1) = x_2$となる時である。
+                $x_1 = x_2$となるとき、特別に\textbf{単連結}であるという。
 
     \chapter{ホモロジー群}
+        \section{同相写像と位相不変量}
+        2.4
+        \section{単体と単体的複体}
+            ある図形に対して、その図形の構成要素を\textbf{単体}、その単体を組み合わせて作られる図形を\textbf{単体的複体}という。
+            順番にそれぞれについて見ていく。
+
+            \subsection*{単体}
+                r次元の構成要素を\textbf{r-単体}という。
+                例えば、辺は1-単体、面は2-単体といったような要領である。
+                r-単体は、r+1個の頂点を用いて表現することができて、
+                \begin{equation}
+                    \sigma_r = \langle p_0p_1 \dots p_r \rangle = \sum_{i=0}^{r} c_i p_i \left( \sum_{i=0}^{r} c_i = 1 \right)
+                \end{equation}
+                と表すことができる。
+                これに向きを導入することができ、
+                \begin{equation}
+                    \sigma_r = ( p_0p_1 \dots p_r )
+                \end{equation}
+                のようにしたものを\textbf{向き付けられたr-単体}という。
+                さらに、\textbf{辺単体（面単体）}と呼ばれるものを導入することができ、$0 \leqq q \leqq r$となるような$q$に対する、$\sigma_q$を\textbf{q-辺単体}という。
+                この時、$\sigma_q \leqq \sigma_r$と書く。
+                このような要素を持って、単体的複体を構成する。
+
+            \subsection*{単体的複体}
+                単体を以下の２つの条件に合うように、\textbf{綺麗に}組み合わせた$K$を\textbf{単体的複体}という。
+                \begin{itemize}
+                  \item $\sigma \in K$かつ$\tau \leqq \sigma$ならば、$\tau \in K$である。
+                  \item $\sigma, \tau \in K$に対して、$\sigma \cap \tau = \emptyset$または、$\sigma \cap \tau \leqq \sigma$かつ$\sigma \cap \tau \leqq \tau$である。
+                \end{itemize}
+                このような条件は、$K$のもつ構成要素（単体）が過不足なく含まれていることを保証するものである。
+
+        \section{鎖複体}
+            
+
+        \section{輪体群と境界輪体群}
+
+
+        \section{ホモロジー群}
+
+
+        \section{Euler標数とBetti数}
+            単体的複体$K$の\textbf{r次Betti数}$b_r(K)$を
+            \begin{equation}
+                b_r(K) = dim H_r(K)
+            \end{equation}
+            と定義する。
+            $dim H_r(K)$は、r次ホモロジー群の自由加群部分の階数を表している。
+            この時、Euler標数は$K$のr-単体の個数を$I_r$として、
+            \begin{equation}
+                \chi(K) = \sum_{r=0}^{n} (-1)^r I_r(K) = \sum_{r=0}^{n} (-1)^r b_r(K)
+            \end{equation}
+            と表すことができる。
+            この関係は、r次元鎖群とその境界作用素に対して次元定理を用いることで導出することができる。
+
+        \section{Mayer-Vietoris完全系列}
+            ある単体$K$を、$K = K_1 \cup K_2$のように分解したとき、
+            \begin{equation}
+                \dots \rightarrow H_q(K_1 \cap K_2) \rightarrow H_q(K_1) \oplus H_q(K_2) \rightarrow H_q(K) \rightarrow H_{q-1}(K_1 \cap K_2) \rightarrow \dots
+            \end{equation}
+            のような完全系列が存在する。
+            これを\textbf{Mayer-Vietoris完全系列}という。
+            これと完全系列の性質を用いることで、ホモロジー群の計算を容易に行うことができる。
 
     \chapter{ホモトピー群}
+
+
+    \chapter{多様体論}
+        \section{ベクトル空間}
+            これは2.2節の内容
+
+    \chapter{de Rhamコホモロジー群}
+    \chapter{Riemann幾何学}
+    \chapter{複素多様体}
+    \chapter{ファイバー束}
+    \chapter{特性類}
+    % \chapter{指数定理}
 
 \end{document}
